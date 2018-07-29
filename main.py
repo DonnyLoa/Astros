@@ -100,4 +100,4 @@ app = webapp2.WSGIApplication([
     ('/mainPage', TitleScreen),
     ('/name', Name),
     ('/seed-page', SeedPage)
-], debug=True)
+], debug=True
