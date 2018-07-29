@@ -1,43 +1,24 @@
 import webapp2
 import jinja2
 import os
-<<<<<<< HEAD
 from google.appengine.api import urlfetch
 import json
 from random import shuffle
+from model import easyAnimals
+from model import mediumAnimals
+from model import hardAnimals
+from model import easyGeography
+from model import mediumGeography
+from model import hardGeography
 
 #from model import Settings #Name of this class comes from Dee
 roundNumber = 0
-=======
-import json
-from model import easyAnimals
-from model import mediumAnimals
-from model import hardAnimals
-from model import easyGeography
-from model import mediumGeography
-from model import hardGeography
->>>>>>> 457c3c6fb631c67bceb1b860dc9acd6310c661b5
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-<<<<<<< HEAD
-from model import easyAnimals
-from model import mediumAnimals
-from model import hardAnimals
-from model import easyGeography
-from model import mediumGeography
-from model import hardGeography
-
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
-    autoescape=True)
-
-=======
->>>>>>> 457c3c6fb631c67bceb1b860dc9acd6310c661b5
 class SeedPage(webapp2.RequestHandler):
     def get(self):
         animalsEasyEndPoint = "https://opentdb.com/api.php?amount=10&category=27&difficulty=easy"
@@ -104,15 +85,9 @@ class SeedPage(webapp2.RequestHandler):
             g_h_question = hardGeography(
                 geo_h_question = f["question"]
                 geo_h_correct = f["correct_answer"]
-                geo_h_wrong = f["incorrect_answers"]
-            )
+                geo_h_wrong = f["incorrect_answers"])
         g_h_question.put()
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 457c3c6fb631c67bceb1b860dc9acd6310c661b5
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
         start_template = JINJA_ENVIRONMENT.get_template('templates/first_page.html') #Html pages comes from Dee M
