@@ -90,11 +90,11 @@ class SeedPage(webapp2.RequestHandler):
 
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
-        start_template = JINJA_ENVIRONMENT.get_template('templates/first_page.html') #Html pages comes from Dee M
+        start_template = JINJA_ENVIRONMENT.get_template('templates/astros.html') #Html pages comes from Dee M
         self.response.write(start_template.render())
 
     def post(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/first_page.html')
+        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
 
 class Name(webapp2.RequestHandler):
     def post(self):
@@ -320,7 +320,7 @@ class Results(webapp2.RequestHandler):
 
 class EndGame(webapp2.RequestHandler):
     def post(self):
-        end_template = JINJA_ENVIRONMENT.get_template('astros.html')
+        end_template = JINJA_ENVIRONMENT.get_template('endgame.html')
         self.response.write(end_template.render())
 
     def get(self):
@@ -328,6 +328,7 @@ class EndGame(webapp2.RequestHandler):
         self.response.write(end_template.render())
 
 app = webapp2.WSGIApplication([
+    ('/', TitleScreen),
     ('/mainPage', TitleScreen),
     ('/name', Name),
     ('/eightBall', MagicDecision),
