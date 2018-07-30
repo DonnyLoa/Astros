@@ -137,7 +137,7 @@ class MagicDecision(webapp2.RequestHandler):
         #              'line2': name2}
 
         #self.response.write(magic_template.render(names_data))
-        #self.response.write(magic_template.render())
+        self.response.write(magic_template.render())
 
     def get(self):
         magic_template = JINJA_ENVIRONMENT.get_template('templates/magic_decision.html')
@@ -310,7 +310,7 @@ class Trivia(webapp2.RequestHandler):
 class Results(webapp2.RequestHandler):
     def post(self):
         results_template = JINJA_ENVIRONMENT.get_template('templates/results.html')
-        #self.response.get()
+        #self.response.get(
 
         self.response.write(results_template.render())
 
@@ -330,9 +330,9 @@ class EndGame(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/mainPage', TitleScreen),
     ('/name', Name),
-    ('/seed-page', SeedPage),
     ('/eightBall', MagicDecision),
     ('/trivia', Trivia),
     ('/results', Results),
     ('/endGame', EndGame),
+    ('/seed-page', SeedPage),
 ], debug=True)
