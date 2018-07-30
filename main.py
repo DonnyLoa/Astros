@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
 
->>>>>>> master
+#>>>>>>> master
 import webapp2
 import jinja2
 import os
@@ -100,7 +100,7 @@ class TitleScreen(webapp2.RequestHandler):
         self.response.write(start_template.render())
 
     def post(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
+        name_template = JINJA_ENVIRONMENT.get_template('templates/magic_decision.html')
 
     def post(self):
         name_template = JINJA_ENVIRONMENT.get_template('templates/info.html')
@@ -120,10 +120,6 @@ class TitleScreen(webapp2.RequestHandler):
 
         self.response.write(name_template.render(settings_data))
         #self.response.write(name_template.render())
-
-    def get(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/name.html')
-        self.response.write(name_template.render())
 
 class MagicDecision(webapp2.RequestHandler):
     def post(self):
@@ -319,23 +315,20 @@ class Trivia(webapp2.RequestHandler):
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
 
-
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
 
-
-
-
+    def get(self):
+        trivia_template = JINJA_ENVIRONMENT.get_template('templates/results.html')
+        self.response.write(trivia_template.render(trivia_data))
 
 class Results(webapp2.RequestHandler):
     def post(self):
         results_template = JINJA_ENVIRONMENT.get_template('templates/results.html')
-        #self.response.get(
-
         self.response.write(results_template.render())
 
     def get(self):
-        results_template = JINJA_ENVIRONMENT.get_template('templates/magic_decision.html')
+        results_template = JINJA_ENVIRONMENT.get_template('templates/results.html')
         self.response.write(results_template.render())
 
 class EndGame(webapp2.RequestHandler):
@@ -349,7 +342,6 @@ class EndGame(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', TitleScreen),
-    ('/mainPage', TitleScreen),
     ('/eightBall', MagicDecision),
     ('/trivia', Trivia),
     ('/results', Results),
