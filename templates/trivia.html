@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <title>Ma8ic Trivia</title>
     <style media="screen">
     #header{
@@ -29,6 +30,36 @@
 
     <h2 id="n1">name1</h2>
     <h2 id="n2">name2</h2>
+=======
+    <title></title>
+    <script>
+    let time = 1;
+
+      function myFunction(time) {
+        if (time == 0) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 1000);
+        }
+        else if (time == 1) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 5000);
+        }
+        else if (time == 2) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 10000);
+        }
+      }
+
+      myFunction(time);
+    </script>
+  </head>
+  <body>
+    <h2>{{ name1 }}</h2>
+    <h2>{{ name2 }}</h2>
+>>>>>>> 08bc5f9174c2bf8b666a0497b8d57b6b4fb9974a
 
     <form class="" action="/results" method="post">
       <input type="submit" name="" value="Submit">
