@@ -70,7 +70,7 @@ class SeedPage(webapp2.RequestHandler):
             g_e_question.put()
 
         g_m_response = urlfetch.fetch(geoMediumEndPoint).content
-        json_g_m_respone = json.loads(g_m_response)
+        json_g_m_response = json.loads(g_m_response)
         g_m_results = json_g_m_response["results"]
         for e in g_m_results:
             g_m_question = mediumGeography(
