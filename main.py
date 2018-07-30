@@ -91,11 +91,11 @@ class SeedPage(webapp2.RequestHandler):
 
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
-        start_template = JINJA_ENVIRONMENT.get_template('templates/first_page.html') #Html pages comes from Dee M
+        start_template = JINJA_ENVIRONMENT.get_template('templates/astros.html') #Html pages comes from Dee M
         self.response.write(start_template.render())
 
     def post(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/first_page.html')
+        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
 
 class Name(webapp2.RequestHandler):
     def post(self):
@@ -330,6 +330,7 @@ class EndGame(webapp2.RequestHandler):
         self.response.write(end_template.render())
 
 app = webapp2.WSGIApplication([
+    ('/', TitleScreen)
     ('/mainPage', TitleScreen),
     ('/name', Name),
     ('/seed-page', SeedPage),
