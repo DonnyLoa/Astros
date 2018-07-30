@@ -1,3 +1,4 @@
+testing testing 1...2...3...
 import webapp2
 import jinja2
 import os
@@ -303,7 +304,7 @@ class Trivia(webapp2.RequestHandler):
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
-        
+
 
 
 
