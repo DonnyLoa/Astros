@@ -163,23 +163,33 @@ class Trivia(webapp2.RequestHandler):
 
         self.response.write("<h1> Answer the question! </h1>")
 # CATEGORY: ANIMALS DIFFCULTY: EASY
+
+        all_answers = []
+
         def get(self):
             for i in range(1,10):
                 in_quiry = easyAnimals.query().fetch()[i].animal_e_question
                 answers = easyAnimals.query().fetch()[i].animal_e_correct
+                all_answers = [answers]
+                #json_response = json.loads(answers)
+                #answers1 = json_response
+                #in_quiry1 = json_response
 
-            self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in animal_m_wrong:
-            all_answers.append(answer)
+                #self.response.write(in_quiry)
+                #self.response.write(answers)
+                shuffle(all_answers)
 
-        shuffle(all_answers)
+            #self.response.write("<br>" + in_quiry )
 
-        self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+        #for answer in all_answers:
+            #all_answers.append(answer)
+
+            self.response.write("<h2>" + answers + "</h2>")
+
+            for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
@@ -202,16 +212,16 @@ class Trivia(webapp2.RequestHandler):
 
             self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in animal_m_wrong:
-            all_answers.append(answer)
+            all_answers = [answers]
+            for answer in animal_m_wrong:
+                all_answers.append(answer)
 
-        shuffle(all_answers)
+            shuffle(all_answers)
 
-        self.response.write("<h2>" + answers + "</h2>")
+            self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
@@ -224,16 +234,16 @@ class Trivia(webapp2.RequestHandler):
 
             self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in animal_h_wrong:
-            all_answers.append(answer)
+            all_answers = [answers]
+            for answer in animal_h_wrong:
+                all_answers.append(answer)
 
-        shuffle(all_answers)
+            shuffle(all_answers)
 
-        self.response.write("<h2>" + answers + "</h2>")
+            self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
@@ -246,16 +256,16 @@ class Trivia(webapp2.RequestHandler):
 
             self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in geo_e_wrong:
-            all_answers.append(answer)
+            all_answers = [answers]
+            for answer in geo_e_wrong:
+                all_answers.append(answer)
 
-        shuffle(all_answers)
+            shuffle(all_answers)
 
-        self.response.write("<h2>" + answers + "</h2>")
+            self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
@@ -268,16 +278,16 @@ class Trivia(webapp2.RequestHandler):
 
             self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in geo_m_wrong:
-            all_answers.append(answer)
+            all_answers = [answers]
+            for answer in geo_m_wrong:
+                all_answers.append(answer)
 
-        shuffle(all_answers)
+            shuffle(all_answers)
 
-        self.response.write("<h2>" + answers + "</h2>")
+            self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
@@ -290,16 +300,16 @@ class Trivia(webapp2.RequestHandler):
 
             self.response.write("<br>" + in_quiry )
 
-        all_answers = [answers]
-        for answer in geo_h_wrong:
-            all_answers.append(answer)
+            all_answers = [answers]
+            for answer in geo_h_wrong:
+                all_answers.append(answer)
 
-        shuffle(all_answers)
+            shuffle(all_answers)
 
-        self.response.write("<h2>" + answers + "</h2>")
+            self.response.write("<h2>" + answers + "</h2>")
 
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
