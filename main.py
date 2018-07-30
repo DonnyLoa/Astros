@@ -97,7 +97,6 @@ class TitleScreen(webapp2.RequestHandler):
     def post(self):
         name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
 
-class Info(webapp2.RequestHandler):
     def post(self):
         name_template = JINJA_ENVIRONMENT.get_template('templates/info.html')
         difficulty = self.request.get("difficulty") #Dee's Data variables
@@ -332,7 +331,6 @@ class EndGame(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', TitleScreen),
     ('/mainPage', TitleScreen),
-    ('/info', Info),
     ('/eightBall', MagicDecision),
     ('/trivia', Trivia),
     ('/results', Results),
