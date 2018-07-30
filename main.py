@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
+>>>>>>> parent of 5ef3cf9... commit working trivia
 import webapp2
 import jinja2
 import os
