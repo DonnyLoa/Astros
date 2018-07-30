@@ -222,9 +222,9 @@ class EndGame(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/mainPage', TitleScreen),
     ('/name', Name),
-    ('/seed-page', SeedPage)
+    ('/seed-page', SeedPage),
     ('/eightBall', MagicDecision),
     ('/trivia', Trivia),
     ('/results', Results),
     ('/endGame', EndGame),
-], debug=True
+], debug=True)
