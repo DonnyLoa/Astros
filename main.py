@@ -4,6 +4,7 @@ import jinja2
 import os
 from google.appengine.api import urlfetch
 import json
+import random
 from random import shuffle
 from model import easyAnimals
 from model import mediumAnimals
@@ -14,6 +15,7 @@ from model import hardGeography
 
 #from model import Settings #Name of this class comes from Dee
 roundNumber = 0
+i = 0
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -81,7 +83,7 @@ class SeedPage(webapp2.RequestHandler):
 
         g_h_response = urlfetch.fetch(geoHardEndPoint).content
         json_g_h_response = json.loads(g_h_response)
-        g_h_results = json_g_h_results["results"]
+        g_h_results = json_g_h_response["results"]
         for f in g_h_results:
             g_h_question = hardGeography(
                 geo_h_question = f["question"],
@@ -163,36 +165,39 @@ class Trivia(webapp2.RequestHandler):
 
         self.response.write("<h1> Answer the question! </h1>")
 # CATEGORY: ANIMALS DIFFCULTY: EASY
-
+        j = [""]
         all_answers = []
 
-        def get(self):
-            for i in range(1,10):
-                in_quiry = easyAnimals.query().fetch()[i].animal_e_question
-                answers = easyAnimals.query().fetch()[i].animal_e_correct
-                all_answers = [answers]
-                #json_response = json.loads(answers)
-                #answers1 = json_response
-                #in_quiry1 = json_response
 
+    # def post(self):
+        for i in range(1,10):
+            j = random.randint(1,10)
 
+        in_quiry = easyAnimals.query().fetch()[j].animal_e_question
+        correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
+        incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
+        self.response.write(in_quiry)
+            # json_response_in_quiry = json.loads(in_quiry)
+            # json_response_answers = json.loads(answers)
+            #
+            # question = json_response
+            # question_answers = json_response
+
+        all_answers = [correct_answer]
+        for v in incorrect_answers:
+            all_answers.append(v)
                 #self.response.write(in_quiry)
                 #self.response.write(answers)
-                shuffle(all_answers)
+        shuffle(all_answers)
 
-            #self.response.write("<br>" + in_quiry )
+                #self.response.write("<br>" + in_quiry )
+                #self.response.write("<h2>" + answers + "</h2>")
 
+        for answer in all_answers:
+            self.response.write("<p>" + answer + "</p>")
 
-        #for answer in all_answers:
-            #all_answers.append(answer)
-
-            self.response.write("<h2>" + answers + "</h2>")
-
-            for answer in all_answers:
-                    self.response.write("<p>" + answer + "</p>")
-
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
+        #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+        #self.response.write(trivia_template.render(trivia_data))
         #answer_template = JINJA_ENVIRONMENT.get_template('templates/main.html')
         #test_dict = {
         #    'answer1': all_answers[0],
@@ -206,110 +211,111 @@ class Trivia(webapp2.RequestHandler):
         #self.response.write(trivia_template.render())
 # CATEGORY: ANIMALS DIFFICULTY: MEDIUM
         def get(self):
-            for i in range(1,10):
-                in_quiry = mediumAnimals.query().fetch()[i].animal_m_question
-                answers = mediumAnimals.query().fetch()[i].animal_m_correct
+                for i in range(1,10):
+                    in_quiry = mediumAnimals.query().fetch()[i].animal_m_question
+                    answers = mediumAnimals.query().fetch()[i].animal_m_correct
 
-            self.response.write("<br>" + in_quiry )
+                self.response.write("<br>" + in_quiry )
 
-            all_answers = [answers]
-            for answer in animal_m_wrong:
-                all_answers.append(answer)
+                all_answers = [answers]
+                for answer in animal_m_wrong:
+                    all_answers.append(answer)
 
-            shuffle(all_answers)
+                shuffle(all_answers)
 
-            self.response.write("<h2>" + answers + "</h2>")
+                self.response.write("<h2>" + answers + "</h2>")
 
-            for answer in all_answers:
-                self.response.write("<p>" + answer + "</p>")
+                for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
 
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
+            #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+            #self.response.write(trivia_template.render(trivia_data))
 
-# CATEGORY: ANIMALS DIFFICULTY: HARD
+        # CATEGORY: ANIMALS DIFFICULTY: HARD
         def get(self):
-            for i in range(1,10):
-                in_quiry = hardAnimals.query().fetch()[i].animal_h_question
-                answers = hardAnimals.query().fetch()[i].animal_h_correct
+                for i in range(1,10):
+                    in_quiry = hardAnimals.query().fetch()[i].animal_h_question
+                    answers = hardAnimals.query().fetch()[i].animal_h_correct
 
-            self.response.write("<br>" + in_quiry )
+                self.response.write("<br>" + in_quiry )
 
-            all_answers = [answers]
-            for answer in animal_h_wrong:
-                all_answers.append(answer)
+                all_answers = [answers]
+                for answer in animal_h_wrong:
+                    all_answers.append(answer)
 
-            shuffle(all_answers)
+                shuffle(all_answers)
 
-            self.response.write("<h2>" + answers + "</h2>")
+                self.response.write("<h2>" + answers + "</h2>")
 
-            for answer in all_answers:
-                self.response.write("<p>" + answer + "</p>")
+                for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
 
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
+            #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+            #self.response.write(trivia_template.render(trivia_data))
 
-# CATEGORY: GEOGRAPHY DIFFICULTY: EASY
+        # CATEGORY: GEOGRAPHY DIFFICULTY: EASY
         def get(self):
-            for i in range(1,10):
-                in_quiry = easyGeography.query().fetch()[i].geo_e_question
-                answers = easyGeography.query().fetch()[i].geo_e_correct
+                for i in range(1,10):
+                    in_quiry = easyGeography.query().fetch()[i].geo_e_question
+                    answers = easyGeography.query().fetch()[i].geo_e_correct
 
-            self.response.write("<br>" + in_quiry )
+                self.response.write("<br>" + in_quiry )
 
-            all_answers = [answers]
-            for answer in geo_e_wrong:
-                all_answers.append(answer)
+                all_answers = [answers]
+                for answer in geo_e_wrong:
+                    all_answers.append(answer)
 
-            shuffle(all_answers)
+                shuffle(all_answers)
 
-            self.response.write("<h2>" + answers + "</h2>")
+                self.response.write("<h2>" + answers + "</h2>")
 
-            for answer in all_answers:
-                self.response.write("<p>" + answer + "</p>")
+                for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
 
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
+            #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+            #self.response.write(trivia_template.render(trivia_data))
 
-# CATEGORY: GEOGRAPHY DIFFICULTY: MEDIUM
+        # CATEGORY: GEOGRAPHY DIFFICULTY: MEDIUM
         def get(self):
-            for i in range(1,10):
-                in_quiry = mediumGeography.query().fetch()[i].geo_m_question
-                answers = mediumGeography.query().fetch()[i].geo_m_correct
+                for i in range(1,10):
+                    in_quiry = mediumGeography.query().fetch()[i].geo_m_question
+                    answers = mediumGeography.query().fetch()[i].geo_m_correct
 
-            self.response.write("<br>" + in_quiry )
+                self.response.write("<br>" + in_quiry )
 
-            all_answers = [answers]
-            for answer in geo_m_wrong:
-                all_answers.append(answer)
+                all_answers = [answers]
+                for answer in geo_m_wrong:
+                    all_answers.append(answer)
 
-            shuffle(all_answers)
+                shuffle(all_answers)
 
-            self.response.write("<h2>" + answers + "</h2>")
+                self.response.write("<h2>" + answers + "</h2>")
 
-            for answer in all_answers:
-                self.response.write("<p>" + answer + "</p>")
+                for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
 
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
+            #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+            #self.response.write(trivia_template.render(trivia_data))
 
-# CATEGORY GEOGRAPHY DIFFICULTY: HARD
+        # CATEGORY GEOGRAPHY DIFFICULTY: HARD
         def get(self):
-            for i in range(1,10):
-                in_quiry = hardGeography.query().fetch()[i].geo_h_question
-                answers = hardGeography.query().fetch()[i].geo_h_correct
+                for i in range(1,10):
+                    in_quiry = hardGeography.query().fetch()[i].geo_h_question
+                    answers = hardGeography.query().fetch()[i].geo_h_correct
 
-            self.response.write("<br>" + in_quiry )
+                self.response.write("<br>" + in_quiry )
 
-            all_answers = [answers]
-            for answer in geo_h_wrong:
-                all_answers.append(answer)
+                all_answers = [answers]
+                for answer in geo_h_wrong:
+                    all_answers.append(answer)
 
-            shuffle(all_answers)
+                shuffle(all_answers)
 
-            self.response.write("<h2>" + answers + "</h2>")
+                self.response.write("<h2>" + answers + "</h2>")
 
-            for answer in all_answers:
-                self.response.write("<p>" + answer + "</p>")
+                for answer in all_answers:
+                    self.response.write("<p>" + answer + "</p>")
+
 
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
