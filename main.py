@@ -53,8 +53,8 @@ class SeedPage(webapp2.RequestHandler):
         a_h_results = json_a_h_response["results"]
         for c in a_h_results:
             a_h_question = hardAnimals(
-                animal_h_question = c["question"]
-                animal_h_correct = c["correct_answer"]
+                animal_h_question = c["question"],
+                animal_h_correct = c["correct_answer"],
                 animal_h_wrong = c["incorrect_answers"])
             a_h_question.put()
 
@@ -63,8 +63,8 @@ class SeedPage(webapp2.RequestHandler):
         g_e_results = json_g_e_response["results"]
         for d in g_e_results:
             g_e_question = easyGeography(
-                geo_e_question = d["question"]
-                geo_e_correct = d["correct_answer"]
+                geo_e_question = d["question"],
+                geo_e_correct = d["correct_answer"],
                 geo_e_wrong = d["incorrect_answers"])
             g_e_question.put()
 
@@ -73,8 +73,8 @@ class SeedPage(webapp2.RequestHandler):
         g_m_results = json_g_m_response["results"]
         for e in g_m_results:
             g_m_question = mediumGeography(
-                geo_m_question = e["question"]
-                geo_m_correct = e["correct_answer"]
+                geo_m_question = e["question"],
+                geo_m_correct = e["correct_answer"],
                 geo_m_wrong = e["incorrect_answers"])
             g_m_question.put()
 
@@ -83,8 +83,8 @@ class SeedPage(webapp2.RequestHandler):
         g_h_results = json_g_h_results["results"]
         for f in g_h_results:
             g_h_question = hardGeography(
-                geo_h_question = f["question"]
-                geo_h_correct = f["correct_answer"]
+                geo_h_question = f["question"],
+                geo_h_correct = f["correct_answer"],
                 geo_h_wrong = f["incorrect_answers"])
         g_h_question.put()
 
@@ -115,7 +115,7 @@ class Name(webapp2.RequestHandler):
 
         self.response.write(name_template.render(settings_data))
         #self.response.write(name_template.render())
-        
+
     def get(self):
         name_template = JINJA_ENVIRONMENT.get_template('templates/name.html')
         self.response.write(name_template.render())
@@ -127,7 +127,7 @@ class MagicDecision(webapp2.RequestHandler):
         name2 = self.request.get("name2")
 
         #player_names = Names(name1=name1,    #class with data from ^ comes from Dee H
-                             name2=name2)
+        #                     name2=name2)
 
         #player_names.put()
 
@@ -149,7 +149,7 @@ class Trivia(webapp2.RequestHandler):
         player = self.request.get("player")  #Dee's Data variables
         points = self.request.get("points")  #Dee's Data variables
 
-        #generated_trivia = trivia_questions(difficulty=difficulty,    #class with data from ^ comes from Dee H
+        #generated_trivia = SeedPage(difficulty=difficulty,    #class with data from ^ comes from Dee H
         #                         player=player,
         #                         points=points)
 
