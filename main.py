@@ -48,7 +48,7 @@ class SeedPage(webapp2.RequestHandler):
                 animal_m_wrong = b["incorrect_answers"])
             a_m_question.put()
 
-        a_h_response = urlfetch.fetch(animalsHardEndPoint)
+        a_h_response = urlfetch.fetch(animalsHardEndPoint).content
         json_a_h_response = json.loads(a_h_response)
         a_h_results = json_a_h_response["results"]
         for c in a_h_results:
@@ -58,7 +58,7 @@ class SeedPage(webapp2.RequestHandler):
                 animal_h_wrong = c["incorrect_answers"])
             a_h_question.put()
 
-        g_e_response = urlfetch.fetch(geoEasyEndPoint)
+        g_e_response = urlfetch.fetch(geoEasyEndPoint).content
         json_g_e_response = json.loads(g_e_response)
         g_e_results = json_g_e_response["results"]
         for d in g_e_results:
@@ -68,7 +68,7 @@ class SeedPage(webapp2.RequestHandler):
                 geo_e_wrong = d["incorrect_answers"])
             g_e_question.put()
 
-        g_m_response = urlfetch.fetch(geoMediumEndPoint)
+        g_m_response = urlfetch.fetch(geoMediumEndPoint).content
         json_g_m_respone = json.loads(g_m_response)
         g_m_results = json_g_m_response["results"]
         for e in g_m_results:
@@ -78,7 +78,7 @@ class SeedPage(webapp2.RequestHandler):
                 geo_m_wrong = e["incorrect_answers"])
             g_m_question.put()
 
-        g_h_response = urlfetch.fetch(geoHardEndPoint)
+        g_h_response = urlfetch.fetch(geoHardEndPoint).content
         json_g_h_response = json.loads(g_h_response)
         g_h_results = json_g_h_results["results"]
         for f in g_h_results:
@@ -115,7 +115,7 @@ class Name(webapp2.RequestHandler):
 
         self.response.write(name_template.render(settings_data))
         #self.response.write(name_template.render())
-        
+
     def get(self):
         name_template = JINJA_ENVIRONMENT.get_template('templates/name.html')
         self.response.write(name_template.render())
