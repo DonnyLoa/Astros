@@ -320,7 +320,7 @@ class Results(webapp2.RequestHandler):
 
 class EndGame(webapp2.RequestHandler):
     def post(self):
-        end_template = JINJA_ENVIRONMENT.get_template('endgame.html')
+        end_template = JINJA_ENVIRONMENT.get_template('astros.html')
         self.response.write(end_template.render())
 
     def get(self):
