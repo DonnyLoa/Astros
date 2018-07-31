@@ -2,9 +2,42 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <title>Ma8ic Trivia</title>
+    <style media="screen">
+    #header{
+
+      text-align: center;
+    }
+    #n1{
+      color: white;
+     position: absolute; top: 5px; left: 5px; text-align: left;
+     }
+    #n2{
+      color: white;
+     position: absolute; top: 5px; right: 5px; text-align: right;
+     }
+    }
+    </style>
+  </head>
+  <body>
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" href="astros.css">
+    <body style="background-color:#FEBC1F">
+      <div id="header">
+      <h1>Ma8ic Trivia </h1>
+      </div>
+
+    <h2 id="n1">name1</h2>
+    <h2 id="n2">name2</h2>
+
     <title></title>
     <script>
+<<<<<<< HEAD
       let time = 1;
+=======
+    let time = 1;
+>>>>>>> master
 
       function myFunction(time) {
         if (time == 0) {
@@ -15,7 +48,11 @@
         else if (time == 1) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results";
+<<<<<<< HEAD
           }, 6000);
+=======
+          }, 5000);
+>>>>>>> master
         }
         else if (time == 2) {
           setTimeout(function() {
@@ -25,6 +62,7 @@
       }
 
       myFunction(time);
+<<<<<<< HEAD
 
       let countDownDate = new Date(6).getTime();
       let distance = countDownDate;
@@ -41,15 +79,21 @@
           document.getElementById("countdown").innerHTML = "EXPIRED";
         }
       }, 1000);
+=======
+>>>>>>> master
     </script>
   </head>
 
   <body>
+<<<<<<< HEAD
     <p id="countdown"></p>
+=======
+>>>>>>> master
     <h2>{{ name1 }}</h2>
     <h2>{{ name2 }}</h2>
     <form class="" action="/results" method="post">
       <input type="submit" name="" value="Submit">
+      <input type="text" name="" value="">
     </form>
   </body>
 </html>
