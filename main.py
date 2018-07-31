@@ -1,7 +1,3 @@
-#<<<<<<< HEAD
-#=======
-
-#>>>>>>> master
 import webapp2
 import jinja2
 import os
@@ -15,6 +11,7 @@ from model import hardAnimals
 from model import easyGeography
 from model import mediumGeography
 from model import hardGeography
+#from model import questionData
 
 #from model import Settings #Name of this class comes from Dee
 roundNumber = 0
@@ -94,6 +91,15 @@ class SeedPage(webapp2.RequestHandler):
                 geo_h_wrong = f["incorrect_answers"])
         g_h_question.put()
 
+        #player_1_data = questionData(player=1,points=0).put()
+        #player_2_data = questionData(player=1,points=0).put()
+
+        for g in range(10):
+            triviaData = questionData(
+                player = g["player"],
+                points = g["points"])
+        triviaData.put()
+
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
         start_template = JINJA_ENVIRONMENT.get_template('templates/astros.html') #Html pages comes from Dee M
@@ -145,11 +151,12 @@ class MagicDecision(webapp2.RequestHandler):
         self.response.write(magic_template.render())
 
 class Trivia(webapp2.RequestHandler):
+    #counter = 0
     def post(self):
         # = self.request.get("difficulty") #Dee's Data variables
         player = self.request.get("player")  #Dee's Data variables
         points = self.request.get("points")  #Dee's Data variables
-
+        #counter = counter + 1
         #generated_trivia = SeedPage(difficulty=difficulty,    #class with data from ^ comes from Dee H
         #                         player=player,
         #                         points=points)
@@ -157,18 +164,31 @@ class Trivia(webapp2.RequestHandler):
         #generated_trivia.put()
 
         #all_trivia = trivia_questions.query().fetch()
-
+        #questionData = {'player':1,
+        #                'points':5}
         trivia_data = {'line1': player,
                        'line2': points}
+                       #'counter': counter}
                        #'all_trivia': all_trivia}
 
         self.response.write("<h1> Answer the question! </h1>")
 # CATEGORY: ANIMALS DIFFCULTY: EASY
+
         j = [""]
         all_answers = []
 
-
     # def post(self):
+
+
+        #self.response.write(player)
+
+            #if (counter == 10):
+            #    trivia_template = JINJA_ENVIRONMENT.get_template('templates/endgame.html')
+            #    self.response.write(trivia_template.render(trivia_data))
+
+
+        #player_data = questionData.query().fetch()[0].player
+        #points_data = questionData.query().fetch()[0].points
         for i in range(1,10):
             j = random.randint(1,10)
 
@@ -176,6 +196,9 @@ class Trivia(webapp2.RequestHandler):
         correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
         incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
         self.response.write(in_quiry)
+        #self.response.write(player_data)
+        #self.response.write(points_data)
+        self.response.write(points)
             # json_response_in_quiry = json.loads(in_quiry)
             # json_response_answers = json.loads(answers)
             #
@@ -189,11 +212,10 @@ class Trivia(webapp2.RequestHandler):
                 #self.response.write(answers)
         shuffle(all_answers)
 
-                #self.response.write("<br>" + in_quiry )
-                #self.response.write("<h2>" + answers + "</h2>")
-
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
+
+        #self.response.write(counter)
 
         #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         #self.response.write(trivia_template.render(trivia_data))
@@ -337,7 +359,7 @@ class EndGame(webapp2.RequestHandler):
         self.response.write(end_template.render())
 
     def get(self):
-        end_template = JINJA_ENVIRONMENT.get_template('endgame.html')
+        end_template = JINJA_ENVIRONMENT.get_template('astros.html')
         self.response.write(end_template.render())
 
 app = webapp2.WSGIApplication([

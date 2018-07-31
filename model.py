@@ -30,3 +30,9 @@ class hardGeography(ndb.Model):
     geo_h_question = ndb.StringProperty(required=True)
     geo_h_correct = ndb.StringProperty(required=True)
     geo_h_wrong = ndb.StringProperty(repeated=True)
+
+#class questionData(ndb.Model):
+#    player = ndb.IntegerProperty(required=True)
+#    points = ndb.IntegerProperty(required=True)
+
+# questions_stuff = ndb.Query(questionData)

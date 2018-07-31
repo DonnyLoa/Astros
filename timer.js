@@ -25,4 +25,20 @@ function myFunction(time) {
 }
 
 myFunction(time);
+
+let countDownDate = new Date(6).getTime();
+let distance = countDownDate;
+let seconds = distance;
+
+let x = setInterval(function() {  // Update the count down every 1 second
+  console.log(seconds)
+  seconds = seconds - 1
+
+  document.getElementById("countdown").innerHTML = seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x); // If the count down is finished, write some text
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
 //})
