@@ -18,7 +18,7 @@ i = 0
 p1score = 0
 p2score = 0
 
-JINJA_ENVIRONMENT = jinja2.Environment(
+jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
@@ -95,14 +95,14 @@ class SeedPage(webapp2.RequestHandler):
 
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
-        start_template = JINJA_ENVIRONMENT.get_template('templates/astros.html') #Html pages comes from Dee M
+        start_template = jinja_env.get_template('templates/astros.html') #Html pages comes from Dee M
         self.response.write(start_template.render())
 
     def post(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
+        name_template = jinja_env.get_template('templates/astros.html')
 
     def post(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         difficulty = self.request.get("difficulty") #Dee's Data variables
         category = self.request.get("category")  #Dee's Data variables
         numRounds = self.request.get("numRounds")  #Dee's Data variables
@@ -121,12 +121,12 @@ class TitleScreen(webapp2.RequestHandler):
         #self.response.write(name_template.render())
 
     def get(self):
-        name_template = JINJA_ENVIRONMENT.get_template('templates/astros.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         self.response.write(name_template.render())
 
 class MagicDecision(webapp2.RequestHandler):
     def post(self):
-        magic_template = JINJA_ENVIRONMENT.get_template('templates/magic_decision.html')
+        magic_template = jinja_env.get_template('templates/magic_decision.html')
         name1 = self.request.get("name1")
         name2 = self.request.get("name2")
 
@@ -144,13 +144,13 @@ class MagicDecision(webapp2.RequestHandler):
         self.response.write(magic_template.render())
 
     def get(self):
-        magic_template = JINJA_ENVIRONMENT.get_template('templates/magic_decision.html')
+        magic_template = jinja_env.get_template('templates/magic_decision.html')
         self.response.write(magic_template.render())
 
-class Trivia(webapp2.RequestHandler):
+class Triv_a_e(webapp2.RequestHandler):
     def post(self):
         # = self.request.get("difficulty") #Dee's Data variables
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+        trivia_template = jinja_env.get_template('templates/trivia.html')
         player = self.request.get("player")  #Dee's Data variables
         points = self.request.get("points")
         trivia_data = {'line1': player,
@@ -187,7 +187,8 @@ class Trivia(webapp2.RequestHandler):
             self.response.write("<p>" + answer + "</p>")
 
 # CATEGORY: ANIMALS DIFFICULTY: MEDIUM
-
+class Triv_a_m(webapp2.RequestHandler):
+    def post(self):
         for i in range(0,10):
             j= random.randint(0,10)
         in_quiry = mediumAnimals.query().fetch()[j].animal_m_question
@@ -198,12 +199,13 @@ class Trivia(webapp2.RequestHandler):
         all_answers = [correct_answer]
         for h in incorrect_answers:
             all_answers.append(h)
-        shuffle(all_answers)
+            shuffle(all_answers)
 
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
          # CATEGORY: ANIMALS DIFFICULTY: HARD
-
+class Triv_a_h(webapp2.RequestHandler):
+    def post(self):
         for i in range(0,10):
             j= random.randint(0,10)
         in_quiry = hardAnimals.query().fetch()[j].animal_h_question
@@ -214,12 +216,14 @@ class Trivia(webapp2.RequestHandler):
         all_answers = [correct_answer]
         for i in incorrect_answers:
             all_answers.append(i)
-        shuffle(all_answers)
+            shuffle(all_answers)
 
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
 
          # CATEGORY: GEOGRAPHY DIFFICULTY: EASY
+class Triv_g_e(webapp2.RequestHandler):
+    def post(self):
         for i in range(0,10):
             j= random.randint(0,10)
         in_quiry = easyGeography.query().fetch()[j].geo_e_question
@@ -230,12 +234,14 @@ class Trivia(webapp2.RequestHandler):
         all_answers = [correct_answer]
         for k in incorrect_answers:
             all_answers.append(k)
-        shuffle(all_answers)
+            shuffle(all_answers)
 
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
 
          # CATEGORY: GEOGRAPHY DIFFICULTY: MEDIUM
+class Triv_g_m(webapp2.RequestHandler):
+    def post(self):
         for i in range(0,10):
             j= random.randint(0,10)
         in_quiry = mediumGeography.query().fetch()[j].geo_m_question
@@ -246,33 +252,34 @@ class Trivia(webapp2.RequestHandler):
         all_answers = [correct_answer]
         for l in incorrect_answers:
             all_answers.append(l)
-        shuffle(all_answers)
+            shuffle(all_answers)
 
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
          # CATEGORY GEOGRAPHY DIFFICULTY: HARD
+class Triv_g_h(webapp2.RequestHandler):
+    def post(self):
         for i in range(0,10):
             j= random.randint(0,10)
         in_quiry = hardGeography.query().fetch()[j].geo_h_question
         answers = hardGeography.query().fetch()[j].geo_h_correct
         incorrect_answers = hardGeography.query().fetch()[j].geo_h_wrong
-        self.response.write("<br>" + in_quiry )
-
+        self.response.write("<br>" + in_quiry)
         all_answers = [correct_answer]
         for m in incorrect_answers:
             all_answers.append(m)
-        shuffle(all_answers)
+            shuffle(all_answers)
 
         for answer in all_answers:
             self.response.write("<p>" + answer + "</p>")
 
-        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+            trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
 
         def get(self):
             trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
             self.response.write(trivia_template.render(trivia_data))
 
-        
+
 
 class Results(webapp2.RequestHandler):
     def post(self):
@@ -296,7 +303,12 @@ app = webapp2.WSGIApplication([
     ('/', TitleScreen),
     ('/mainPage', TitleScreen),
     ('/eightBall', MagicDecision),
-    ('/trivia', Trivia),
+    ('/triv_a_e', Triv_a_e),
+    ('/triv_a_m', Triv_a_m),
+    ('/triv_a_h', Triv_a_h),
+    ('/triv_g_e', Triv_g_e),
+    ('/triv_g_m', Triv_g_m),
+    ('/triv_g_h', Triv_g_h),
     ('/results', Results),
     ('/endGame', EndGame),
     ('/seed-page', SeedPage),
