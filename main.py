@@ -147,6 +147,7 @@ class MagicDecision(webapp2.RequestHandler):
 class Trivia(webapp2.RequestHandler):
     def post(self):
         # = self.request.get("difficulty") #Dee's Data variables
+        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         player = self.request.get("player")  #Dee's Data variables
         points = self.request.get("points")  #Dee's Data variables
 
@@ -258,7 +259,7 @@ class Trivia(webapp2.RequestHandler):
                 incorrect_answers = hardGeography.query().fetch()[j].geo_h_wrong
             self.response.write("<br>" + in_quiry )
 
-<<<<<<< HEAD
+
             all_answers = [correct_answer]
             for v in incorrect_answers:
                 all_answers.append(v)
@@ -269,11 +270,10 @@ class Trivia(webapp2.RequestHandler):
 
             trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
             self.response.write(trivia_template.render(trivia_data))
-=======
+
     def get(self):
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
         self.response.write(trivia_template.render(trivia_data))
->>>>>>> 08bc5f9174c2bf8b666a0497b8d57b6b4fb9974a
 
 class Results(webapp2.RequestHandler):
     def post(self):
