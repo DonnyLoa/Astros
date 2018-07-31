@@ -359,8 +359,8 @@ class Trivia(webapp2.RequestHandler):
         #         for answer in all_answers:
         #             self.response.write("<p>" + answer + "</p>")
         #
-        #trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
-        #self.response.write(trivia_template.render())
+        trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
+        self.response.write(trivia_template.render())
 
     def get(self):
         trivia_template = JINJA_ENVIRONMENT.get_template('templates/trivia.html')
