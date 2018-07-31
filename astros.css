@@ -1,0 +1,22 @@
+#header {
+  color: White;
+  background-color: Black;
+  font-size: 20px;
+  height: 100px;
+  margin: 0px;
+  padding-top: 0%;
+  text-align: center;
+  width: 100%;
+  font-family: 'Monoton', cursive;
+}
+
+#Rules {
+  color:White;
+  background-color: Black;
+  font-size: 15px;
+  height: 100px;
+  margin: 0px;
+  padding-top: 0%;
+  text-align: center;
+  width: 100%;
+}
