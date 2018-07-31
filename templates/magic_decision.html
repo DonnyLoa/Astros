@@ -3,18 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="magic_8.css">
+    <!-- <link rel="stylesheet" href="magic_8.css"> -->
   </head>
   <body>
     <p>Magic Ball</p>
+
+
+    <script type="text/javascript">
+      let difficulty = {{ difficulty.difficulty }};
+      let variable = 0;
+
+      {% if (difficulty == "Easy") %}
+        variable = 0;
+        console.log(variable)
+      {% endif %}
+      {% if (difficulty == "Medium") %}
+        variable = 1;
+        console.log(variable)
+      {% endif %}
+      {% if (difficulty == "Hard") %}
+        variable = 2;
+        console.log(variable)
+      {% endif %}
+      // {{ key_in_dict }}
+    </script>
+
     <form class="" action="/trivia" method="post">
-<<<<<<< HEAD
-      <div class="">
+      <option name="difficulty_set" value=variable></option>
+      <!-- <a href="astros.html"> -->
         <button onclick="myFunction()" id="magic_button">Click the button</button>
-      </div>
-=======
-      <button onclick="myFunction()">Click the button</button>
->>>>>>> master
+      <!-- </a> -->
     </form>
   </body>
 </html>
