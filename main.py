@@ -330,7 +330,7 @@ class EndGame(webapp2.RequestHandler):
         self.response.write(end_template.render())
 
 app = webapp2.WSGIApplication([
-    ('/', TitleScreen)
+    ('/', TitleScreen),
     ('/mainPage', TitleScreen),
     ('/name', Name),
     ('/seed-page', SeedPage),
