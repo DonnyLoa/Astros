@@ -1,26 +1,39 @@
+
+
 <!DOCTYPE html>
 <head>
+
 <title> Ma8ic Trivia </title>
+
 </head>
     <!-- Title Font-->
     <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet/astros.css">
+    <link rel="stylesheet" href="stylesheet/HomePage.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="HomePage.js"></script>
 <div class="box">
+
+
       <div id="header">
       <h1>Ma8ic Trivia </h1>
+      </div>
 
-    </div>
 <!-- The top line-->
       <hr id="hr">
 <!-- Rules Paragraph-->
+
   <div id="Rules">
     <h5> How to play: Ma8ic Trivia is a two player game. <br> Once you've chosen your category
-    and number of rounds, <br> the Magic 8-Ball will randomize the time <br> and points given for
-    each trivia question.
-   </h5>
+     and number of rounds, <br> the Magic 8-Ball will randomize the time <br> and points given for
+     each trivia question.
+    </h5>
+
 <!-- Makes the Main Box Border round-->
      <style>
      input[type=text] {
@@ -36,7 +49,7 @@
      }
      </style>
      </head>
-     <body>
+<body>
 <!-- Player 1 and Player 2 Name Insert-->
      <p>Enter Players:  </p>
      <form id="NameInsert">
@@ -49,36 +62,33 @@
      <body>
 <!-- Creates Selection Option-->
 <br>
-<div class="input-field col s12">
-  <p>Category</p>
-  <select>
-    <option value="" disabled selected>Choose your Category</option>
-    <option value="1">Animals</option>
-    <option value="2">Geography</option>
-  </select>
-  <label><table>
+<br>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle DropDown" id="selectionText" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Selection
+  </button>
+  <div id="selectionText" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" onclick="category('Animals')" href="#">Animals</a>
+    <a class="dropdown-item" onclick="category('Geography')" href="#">Geography</a>
+  </div>
+</div>
+
+<br>
+
+<!-- Creates Round Option-->
+<div class="">
+  <button class="btn btn-secondary dropdown-toggle DropDown" type="button" id="difficultyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Difficulty
+  </button>
+  <div id="difficultyDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" onclick="select('Easy')" href="#">Easy</a>
+    <a class="dropdown-item" onclick="select('Kinda Easy')" href="#">Kinda Easy</a>
+    <a class="dropdown-item" onclick="select('Hard')" href="#">Hard</a>
+  </div>
 </div>
 <br>
-<link rel="stylesheet" href="AstrosPage2.html">
-<!-- Creates Round Option-->
-    <div class="input-field col s12">
-      <p>Difficulty</p>
-      <select>
-        <option value="" disabled selected>Select Difficulty</option>
-        <option value="1">Easy</option>
-        <option value="2">Less Easy</option>
-        <option value="3">Waaaayyy Less Easy</option>
-      </select>
-        <label><table>
-    </div>
-
 <!-- Creates Start Button-->
-<form class="" action="/eightBall" method="post">
-<button class="btn start">Start</button>
-</form>
+        <button class="btn start">Start</button>
   </div>
-
-      </div>
-  <br>
 </div>
-  </body>
+</body>
