@@ -1,27 +1,7 @@
-#header {
-  color: White;
-<<<<<<< HEAD
-  background-color: Black;
-  font-size: 20px;
-  height: 100px;
-  margin: 0px;
-  padding-top: 0%;
-  text-align: center;
-  width: 100%;
-  font-family: 'Monoton', cursive;
-}
+/* Header */
 
-#Rules {
-  color:White;
-  background-color: Black;
-  font-size: 15px;
-  height: 100px;
-  margin: 0px;
-  padding-top: 0%;
-  text-align: center;
-  width: 100%;
-}
-=======
+#header {
+  color:white;
   font-size: 20px;
   height: 100px;
   margin: 0px;
@@ -29,40 +9,79 @@
   text-align: center;
   width: 100%;
   font-family: 'Press Start 2P', cursive;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #999;
 }
 
+/* Display for Rules */
+
 #Rules {
+  font-family: 'Roboto Mono', monospace;
   color: white;
   font-size: 15px;
   height: 100px;
+  margin: 0px;
   margin-right: 40px;
-  margin-left: 40px;
+  margin-left: 30px;
   padding-top: 0%;
   text-align: Center;
   width: 100%;
 }
 
-
+/* Type for Name Insert */
 #NameInsert{
   margin-left: 30%;
-   margin-right: 30%;
+  margin-right: 30%;
+	font-family: 'Roboto Mono', monospace;
 }
 
+/* The top line */
 #hr{
-  margin-left: 50%;
-   margin-right: 30%;
+  margin-left: 30%;
+  margin-right: 26%;
 }
 
+/* Player 1 Name Insert */
 #name1{
+margin-right:10%;
+outline: None;
 background-color: transparent;
-}
-#name2{
-background-color: transparent;
+color: white;
+font-family: 'Roboto Mono', monospace;
+font-size: 15px;
+height: 20px;
+
 }
 
+/* Player 2 Name Insert */
+
+#name2{
+margin-right:10%;
+outline: None;
+background-color: transparent;
+color: white;
+font-family: 'Roboto Mono', monospace;
+font-size: 15px
+}
+
+/* Start Button */
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn:hover {background: #222;}
+
+.start {color: #39FF14;}
+
+/* Rainbow Box Corners */
 
 body{
-    background:#111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */
+    background: #111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */
     padding: 0;
     margin: 0;
     min-height: 100vh;
@@ -121,4 +140,3 @@ body{
   50%{background-position:100% 100%;}
   100%{background-position:0% 0%;}
 }
->>>>>>> deandra
