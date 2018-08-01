@@ -13,6 +13,24 @@ from model import easyGeography
 from model import mediumGeography
 from model import hardGeography
 #from model import questionData
+from webapp2_extras import sessions
+
+class BaseHandler(webapp2.RequestHandler):
+    def dispatch(self):
+        # Get a session store for this request.
+        self.session_store = sessions.get_store(request=self.request)
+
+        try:
+            # Dispatch the request.
+            webapp2.RequestHandler.dispatch(self)
+        finally:
+            # Save all sessions.
+            self.session_store.save_sessions(self.response)
+
+    @webapp2.cached_property
+    def session(self):
+        # Returns a session using the default cookie key.
+        return self.session_store.get_session()
 
 #from model import Settings #Name of this class comes from Dee
 roundNumber = 0
@@ -25,7 +43,7 @@ jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class SeedPage(webapp2.RequestHandler):
+class SeedPage(BaseHandler):
     def get(self):
          animalsEasyEndPoint = "https://opentdb.com/api.php?amount=10&category=27&difficulty=easy"
          animalsMediumEndPoint = "https://opentdb.com/api.php?amount=10&category=27&difficulty=medium"
@@ -104,16 +122,18 @@ class SeedPage(webapp2.RequestHandler):
          #        points = g["points"])
          #    triviaData.put()
 
-class TitleScreen(webapp2.RequestHandler):
+class TitleScreen(BaseHandler):
     def get(self):
-        start_template = jinja_env.get_template('templates/first_page.html') #Html pages comes from Dee M
+        start_template = jinja_env.get_template('templates/astros.html') #Html pages comes from Dee M
         self.response.write(start_template.render())
+        difficulty = self.request.get("difficulty")
+        self.session['difficulty'] = difficulty
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
 
     def post(self):
-        name_template = jinja_env.get_template('templates/first_page.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         difficulty = self.request.get("difficulty") #Dee's Data variables
         category = self.request.get("category")  #Dee's Data variables
         numRounds = self.request.get("numRounds")  #Dee's Data variables
@@ -132,34 +152,86 @@ class TitleScreen(webapp2.RequestHandler):
         #self.response.write(name_template.render())
 
     def get(self):
-        name_template = jinja_env.get_template('templates/first_page.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         self.response.write(name_template.render())
 
-class MagicDecision(webapp2.RequestHandler):
+class MagicDecision(BaseHandler):
     def post(self):
         magic_template = jinja_env.get_template('templates/magic_decision.html')
-        name1 = self.request.get("name1")
-        name2 = self.request.get("name2")
+
         difficulty = self.request.get("difficulty")
+        self.session['difficulty'] = difficulty
+        difficulty = self.session.get('difficulty')
         self.response.write(difficulty)
-
-        #player_names = Names(name1=name1,    #class with data from ^ comes from Dee H
-        #                     name2=name2)
-
-        #player_names.put()
-
-        #all_players = player_names.query().fetch()
-
-        #names_data = {'line1': name1,
-        #              'line2': name2}
-
-        #self.response.write(magic_template.render(names_data))
 
         self.response.write(magic_template.render(difficulty=difficulty))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/magic_decision.html')
         self.response.write(magic_template.render())
+#------------------------------------------------------------------Personal Trivia Page that loads different data depending on difficulty and category
+class Trivia(BaseHandler):
+    def post(self):
+        # difficulty = self.request.get("difficulty")
+        # self.session['difficulty'] = difficulty
+        difficulty = self.session.get('difficulty')
+        self.response.write(difficulty)
+
+        j = [""]
+        all_answers = []
+
+        for i in range(0,10):
+            j = random.randint(0,10)
+
+        # difficulty = "Easy"
+
+        if (difficulty == "Easy"):
+            trivia_template = jinja_env.get_template('templates/trivia.html')
+            self.response.write(trivia_template.render(difficulty=difficulty))
+
+            in_quiry = easyAnimals.query().fetch()[j].animal_e_question
+            correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
+            incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
+
+            self.response.write(in_quiry)
+            all_answers = [correct_answer]
+            for h in incorrect_answers:
+                all_answers.append(h)
+                shuffle(all_answers)
+
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
+
+        elif (difficulty == "Less Easy"):
+            trivia_template = jinja_env.get_template('templates/trivia.html')
+            self.response.write(trivia_template.render(difficulty=difficulty))
+
+
+            in_quiry = mediumAnimals.query().fetch()[j].animal_m_question
+            correct_answer = mediumAnimals.query().fetch()[j].animal_m_correct
+            incorrect_answers = mediumAnimals.query().fetch()[j].animal_m_wrong
+
+            self.response.write(in_quiry)
+            all_answers = [correct_answer]
+            for h in incorrect_answers:
+                all_answers.append(h)
+                shuffle(all_answers)
+
+            for answer in all_answers:
+                self.response.write("<p>" + answer + "</p>")
+
+
+        # trivia_template = jinja_env.get_template('templates/trivia.html')
+
+
+# CATEGORY: ANIMALS DIFFCULTY: EASY
+
+
+
+
+
+
+#----------------------------------------------------------------------------------------
 
 class Triv_a_e(webapp2.RequestHandler):
 
@@ -356,7 +428,7 @@ class Triv_g_h(webapp2.RequestHandler):
 
 
 
-class Results(webapp2.RequestHandler):
+class Results(BaseHandler):
     def post(self):
         results_template = jinja_env.get_template('templates/results.html')
         self.response.write(results_template.render())
@@ -374,8 +446,14 @@ class EndGame(webapp2.RequestHandler):
         end_template = jinja_env.get_template('templates/endgame.html')
         self.response.write(end_template.render())
 
+config = {}
+config['webapp2_extras.sessions'] = {
+    'secret_key': 'my-super-secret-key',
+}
+
 app = webapp2.WSGIApplication([
     ('/', TitleScreen),
+    ('/trivia', Trivia),
     ('/seed-page', SeedPage),
     ('/eightBall', MagicDecision),
     ('/triv_a_e', Triv_a_e),
@@ -386,4 +464,5 @@ app = webapp2.WSGIApplication([
     ('/triv_g_h', Triv_g_h),
     ('/results', Results),
     ('/endGame', EndGame),
-], debug=True)
+], config=config,
+   debug=True)

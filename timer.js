@@ -40,11 +40,6 @@ let x = setInterval(function() {  // Update the count down every 1 second
     clearInterval(x); // If the count down is finished, write some text
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
-<<<<<<< HEAD
 }, 1000);
-=======
-}, 1000000);
-=======
->>>>>>> master
 >>>>>>> master
 //})
