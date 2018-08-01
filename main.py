@@ -106,14 +106,14 @@ class SeedPage(webapp2.RequestHandler):
 
 class TitleScreen(webapp2.RequestHandler):
     def get(self):
-        start_template = jinja_env.get_template('templates/first_page.html') #Html pages comes from Dee M
+        start_template = jinja_env.get_template('templates/astros.html') #Html pages comes from Dee M
         self.response.write(start_template.render())
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
 
     def post(self):
-        name_template = jinja_env.get_template('templates/first_page.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         difficulty = self.request.get("difficulty") #Dee's Data variables
         category = self.request.get("category")  #Dee's Data variables
         numRounds = self.request.get("numRounds")  #Dee's Data variables
@@ -132,7 +132,7 @@ class TitleScreen(webapp2.RequestHandler):
         #self.response.write(name_template.render())
 
     def get(self):
-        name_template = jinja_env.get_template('templates/first_page.html')
+        name_template = jinja_env.get_template('templates/astros.html')
         self.response.write(name_template.render())
 
 class MagicDecision(webapp2.RequestHandler):
