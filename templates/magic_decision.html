@@ -8,31 +8,29 @@
   <body>
     <p>Magic Ball</p>
 
-
-    <script type="text/javascript">
-      let difficulty = {{ difficulty.difficulty }};
-      let variable = 0;
-
-      {% if (difficulty == "Easy") %}
-        variable = 0;
-        console.log(variable)
-      {% endif %}
-      {% if (difficulty == "Medium") %}
-        variable = 1;
-        console.log(variable)
-      {% endif %}
-      {% if (difficulty == "Hard") %}
-        variable = 2;
-        console.log(variable)
-      {% endif %}
-      // {{ key_in_dict }}
-    </script>
-
-    <form class="" action="/trivia" method="post">
-      <option name="difficulty_set" value=variable></option>
-      <!-- <a href="astros.html"> -->
+     <form class="" action="/trivia" method="post">
         <button onclick="myFunction()" id="magic_button">Click the button</button>
-      <!-- </a> -->
+        <script type="text/javascript">
+          document.write(sessionStorage.difficulty);
+          //let difficulty = {{ difficulty.difficulty }}
+            // def index():
+              // variable = request.args["variable"]
+
+          let variable = 0;
+          {% if (difficulty == "Easy") %}
+            variable = 0;
+            console.log(variable)
+          {% endif %}
+          {% if (difficulty == "Medium") %}
+            variable = 1;
+            console.log(variable)
+          {% endif %}
+          {% if (difficulty == "Hard") %}
+            variable = 2;
+            console.log(variable)
+          {% endif %}
+          // {{ key_in_dict }}
+        </script>
     </form>
   </body>
 </html>
