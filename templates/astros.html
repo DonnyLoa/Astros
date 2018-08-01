@@ -7,7 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="astros.css">
+=======
+    <link rel="stylesheet" href="stylesheet/astros.css">
+>>>>>>> fe7d929d4a87fc4c18490af429947e169d40e8d8
 <div class="box">
       <div id="header">
       <h1>Ma8ic Trivia </h1>
@@ -17,10 +21,10 @@
       <hr id="hr">
 <!-- Rules Paragraph-->
   <div id="Rules">
-      <h4> How to play: Ma8ic Trivia is a two player game. Once you've chosen your category
-     and number of rounds, the Magic 8-Ball will randomize the time and points given to each
-     trivia question.
-     </h4>
+    <h5> How to play: Ma8ic Trivia is a two player game. <br> Once you've chosen your category
+    and number of rounds, <br> the Magic 8-Ball will randomize the time <br> and points given for
+    each trivia question.
+   </h5>
 <!-- Makes the Main Box Border round-->
      <style>
      input[type=text] {
@@ -38,7 +42,7 @@
      </head>
      <body>
 <!-- Player 1 and Player 2 Name Insert-->
-     <p>Please Insert User:  </p>
+     <p>Enter Players:  </p>
      <form id="NameInsert">
        <label for="name1">Player 1</label>
        <input type="text" id="name1" name="fname">
@@ -46,32 +50,39 @@
        <label for="name2">Player 2</label>
        <input type="text" id="name2" name="lname">
      </form>
-     <p>Choose a category:</p>
-
      <body>
 <!-- Creates Selection Option-->
 <br>
 <div class="input-field col s12">
+  <p>Category</p>
   <select>
     <option value="" disabled selected>Choose your Category</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
+    <option value="1">Animals</option>
+    <option value="2">Geography</option>
   </select>
   <label><table>
-  </table>Trivia Selection</label>
 </div>
 <br>
+<link rel="stylesheet" href="AstrosPage2.html">
+<!-- Creates Round Option-->
+    <div class="input-field col s12">
+      <p>Difficulty</p>
+      <select>
+        <option value="" disabled selected>Select Difficulty</option>
+        <option value="1">Easy</option>
+        <option value="2">Less Easy</option>
+        <option value="3">Waaaayyy Less Easy</option>
+      </select>
+        <label><table>
+    </div>
+
 <!-- Creates Start Button-->
+<form class="" action="/eightBall" method="post">
 <button class="btn start">Start</button>
+</form>
   </div>
 
       </div>
-  <hr>
-<div id="Rules">
-  <form class="" action="/eightBall" method="post">
-      <button type="submit" name="button">Continue</button>
-  </form>
-
+  <br>
 </div>
   </body>
