@@ -3,19 +3,23 @@
 <title> Ma8ic Trivia </title>
 </head>
     <!-- Title Font-->
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="astros.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="tester.css">
 <div class="box">
       <div id="header">
       <h1>Ma8ic Trivia </h1>
+
     </div>
 <!-- The top line-->
       <hr id="hr">
 <!-- Rules Paragraph-->
   <div id="Rules">
       <h4> How to play: Ma8ic Trivia is a two player game. Once you've chosen your category
-     and number of rounds, the Magic 8-Ball will randomized the time and points given to
-     each trivia question is worth.
+     and number of rounds, the Magic 8-Ball will randomize the time and points given to each
+     trivia question.
      </h4>
 <!-- Makes the Main Box Border round-->
      <style>
@@ -34,7 +38,7 @@
      </head>
      <body>
 <!-- Player 1 and Player 2 Name Insert-->
-     <p>Please" Insert User:  </p>
+     <p>Please Insert User:  </p>
      <form id="NameInsert">
        <label for="name1">Player 1</label>
        <input type="text" id="name1" name="fname">
@@ -42,9 +46,32 @@
        <label for="name2">Player 2</label>
        <input type="text" id="name2" name="lname">
      </form>
+     <p>Choose a category:</p>
+
      <body>
 <!-- Creates Selection Option-->
-
+<br>
+<div class="input-field col s12">
+  <select>
+    <option value="" disabled selected>Choose your Category</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+  <label><table>
+  </table>Trivia Selection</label>
+</div>
+<br>
+<!-- Creates Start Button-->
+<button class="btn start">Start</button>
   </div>
+
+      </div>
+  <hr>
+<div id="Rules">
+  <form class="" action="/eightBall" method="post">
+      <button type="submit" name="button">Continue</button>
+  </form>
+
 </div>
   </body>

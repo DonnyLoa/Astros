@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ma8ic Trivia</title>
+    <style media="screen">
+    #header{
+
+      text-align: center;
+    }
+    #n1{
+      color: white;
+     position: absolute; top: 5px; left: 5px; text-align: left;
+     }
+    #n2{
+      color: white;
+     position: absolute; top: 5px; right: 5px; text-align: right;
+     }
+    }
+    </style>
+  </head>
+  <body>
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" href="tester.css">
+    <body style="background-color:#FEBC1F">
+      <div id="header">
+      <h1>Ma8ic Trivia </h1>
+      </div>
+
+    <h2 id="n1">name1</h2>
+    <h2 id="n2">name2</h2>
+
+    <title></title>
+    <script>
+      let time = 1;
+
+      function myFunction(time) {
+        if (time == 0) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 1000);
+        }
+        else if (time == 1) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 6000);
+        }
+        else if (time == 2) {
+          setTimeout(function() {
+            window.location.href = "http://localhost:8080/results";
+          }, 10000);
+        }
+      }
+
+      myFunction(time);
+
+      let countDownDate = new Date(6).getTime();
+      let distance = countDownDate;
+      let seconds = distance;
+
+      let x = setInterval(function() {  // Update the count down every 1 second
+        console.log(seconds)
+        seconds = seconds - 1
+
+        document.getElementById("countdown").innerHTML = seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x); // If the count down is finished, write some text
+          document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  </head>
+
+  <body>
+    <p id="countdown"></p>
+    <h2>{{ name1 }}</h2>
+    <h2>{{ name2 }}</h2>
+    <form class="" action="/results" method="post">
+      <input type="submit" name="" value="Submit">
+      <input type="text" name="" value="">
+    </form>
+  </body>
+</html>
