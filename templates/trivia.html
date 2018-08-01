@@ -26,6 +26,7 @@
     <body style="background-color:#FEBC1F">
       <div id="header">
       <h1>Ma8ic Trivia </h1>
+      <h2> Answer the question! </h1>
       </div>
 
     <h2 id="n1">name1</h2>
@@ -33,6 +34,22 @@
 
     <title></title>
     <script>
+      let countDownDate = new Date(6).getTime();
+      let distance = countDownDate;
+      let seconds = distance;
+
+      let x = setInterval(function() {  // Update the count down every 1 second
+        console.log(seconds)
+        seconds = seconds - 1
+
+        document.getElementById("countdown").innerHTML = seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x); // If the count down is finished, write some text
+          document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+
       let time = 1;
 
       function myFunction(time) {
@@ -54,22 +71,6 @@
       }
 
       myFunction(time);
-
-      let countDownDate = new Date(6).getTime();
-      let distance = countDownDate;
-      let seconds = distance;
-
-      let x = setInterval(function() {  // Update the count down every 1 second
-        console.log(seconds)
-        seconds = seconds - 1
-
-        document.getElementById("countdown").innerHTML = seconds + "s ";
-
-        if (distance < 0) {
-          clearInterval(x); // If the count down is finished, write some text
-          document.getElementById("countdown").innerHTML = "EXPIRED";
-        }
-      }, 1000);
     </script>
   </head>
 
@@ -78,8 +79,7 @@
     <h2>{{ name1 }}</h2>
     <h2>{{ name2 }}</h2>
     <form class="" action="/results" method="post">
-      <input type="submit" name="" value="Submit">
-      <input type="text" name="" value="">
+      <!-- <input type="submit" name="" value="Submit"> -->
     </form>
   </body>
 </html>

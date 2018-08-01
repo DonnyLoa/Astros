@@ -8,31 +8,42 @@
   <body>
     <p>Magic Ball</p>
 
-
-    <script type="text/javascript">
-      let difficulty = {{ difficulty.difficulty }};
-      let variable = 0;
-
-      {% if (difficulty == "Easy") %}
-        variable = 0;
-        console.log(variable)
-      {% endif %}
-      {% if (difficulty == "Medium") %}
-        variable = 1;
-        console.log(variable)
-      {% endif %}
-      {% if (difficulty == "Hard") %}
-        variable = 2;
-        console.log(variable)
-      {% endif %}
-      // {{ key_in_dict }}
-    </script>
-
-    <form class="" action="/trivia" method="post">
-      <option name="difficulty_set" value=variable></option>
+    <form class="" action="/triv_a_e" method="post">
+      <!-- <option name="difficulty_set" value=variable></option> -->
       <!-- <a href="astros.html"> -->
-        <button onclick="myFunction()" id="magic_button">Click the button</button>
       <!-- </a> -->
+      <button onclick="myFunction()" id="magic_button">Click the button</button>
+
+      <div id="result"></div>
+      <script type="text/javascript">
+        //let difficulty = {{ difficulty.difficulty }}
+        //let variable = new Number(0);
+        //sessionStorage.setItem("difficulty",difficulty);
+
+        //document.getElementById("result").innerHTML = sessionStorage.getItem("difficulty")
+
+        let variable = 0;
+
+        {% if (difficulty == "Easy") %}
+          variable = 0;
+          // variable = new Number(0);
+          // passingVariable = variable;
+          console.log(variable)
+        {% endif %}
+        {% if (difficulty == "Medium") %}
+          variable = 1;
+          // variable = new Number(1);
+          // passingVariable = variable;
+          console.log(variable)
+        {% endif %}
+        {% if (difficulty == "Hard") %}
+          variable = 2;
+          // variable = new Number(2);
+          // passingVariable = variable;
+          console.log(variable)
+        {% endif %}
+        // {{ key_in_dict }}
+      </script>
     </form>
   </body>
 </html>
