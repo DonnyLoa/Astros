@@ -25,7 +25,6 @@ function myFunction(time) {
 }
 
 myFunction(time);
-<<<<<<< HEAD
 
 let countDownDate = new Date(10000).getTime();
 let distance = countDownDate;
@@ -41,7 +40,6 @@ let x = setInterval(function() {  // Update the count down every 1 second
     clearInterval(x); // If the count down is finished, write some text
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
-}, 1000000);
-=======
+}, 1000);
 >>>>>>> master
 //})
