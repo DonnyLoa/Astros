@@ -11,18 +11,18 @@
      <form class="" action="/trivia" method="post">
         <button onclick="myFunction()" id="magic_button">Click the button</button>
         <script type="text/javascript">
-          // document.write(difficulty)
-          // document.write(sessionStorage.difficulty);
-          let selectionText = {{ selectionText.selectionText }}
+          //document.write(difficulty)
+          //document.write(sessionStorage.difficulty);
+          let difficulty = {{ difficulty.difficulty }}
 
           //   // def index():
           //     // variable = request.args["variable"]
           //
-          if (selectionText == "Easy"):
+          if (difficulty == "Easy"):
             console.log(0);
-          else if (selectionText == "Less Easy"):
+          else if (difficulty == "Less Easy"):
             console.log(1);
-          else if (selectionText == "Waaaayyy Less Easy"):
+          else if (difficulty == "Waaaayyy Less Easy"):
             console.log(2);
           //
           // let variable = 0;

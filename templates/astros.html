@@ -17,8 +17,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="HomePage.js"></script>
->>>>>>> master
+    <script src="stylesheet/HomePage.js"></script>
+
 <div class="box">
 
 
@@ -65,36 +65,58 @@
 <!-- Creates Selection Option-->
 <br>
 <br>
+
 <!-- <form class="" action="" method="post" name="selectionText"> -->
-  <div class="dropdown">
-    <button name="selectionText" class="btn btn-secondary dropdown-toggle DropDown" id="selectionText" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Selection
+<form class="" action="/eightBall" method="post">
+  <div class="input-field col s12">
+    <select name="category" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <option value="" disabled selected>Choose your Category</option>
+      <option value="Animals">Animals</option>
+      <option value="Geography">Geography</option>
+    </select>
+    <label><table>
+    </table></label>
+  </div>
+  <br>
+  <div class="input-field col s12">
+    <select name="difficulty" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <option value="" disabled selected>Select Difficulty</option>
+      <option value="Easy">Easy</option>
+      <option value="Less Easy">Less Easy</option>
+      <option value="Waaaayyy Less Easy">Waaaayyy Less Easy</option>
+    </select>
+    <label><table>
+    </table></label>
+  </div>
+  <!-- <div class="dropdown" name="category"> -->
+    <!-- <button name="category" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Category
     </button>
-    <div id="selectionText" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" onclick="category('Animals')" href="#">Animals</a>
-      <a class="dropdown-item" onclick="category('Geography')" href="#">Geography</a>
+    <div id="category" name="category" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a name="category" class="dropdown-item" onclick="category('Animals')">Animals</a>
+      <a name="category" class="dropdown-item" onclick="category('Geography')">Geography</a>
     </div>
   </div>
-<!-- </form> -->
-<br>
+</form>
+  <br>
 
-<!-- Creates Round Option-->
-<!-- <form class="" action="index.html" method="post" name="difficultyDropdown"> -->
-  <div class="">
-    <button name="difficultyDropdown" class="btn btn-secondary dropdown-toggle DropDown" type="button" id="difficultyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Creates Round Option
+<form class="" action="index.html" method="post" name="difficultyDropdown">
+  <div class="" name="difficulty">
+    <button name="difficulty" class="btn btn-secondary dropdown-toggle DropDown" type="button" id="difficulty" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Difficulty
     </button>
-    <div id="difficultyDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" onclick="select('Easy')" href="#">Easy</a>
-      <a class="dropdown-item" onclick="select('Kinda Easy')" href="#">Medium</a>
-      <a class="dropdown-item" onclick="select('Hard')" href="#">Hard</a>
+    <div id="difficulty" name="difficulty" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a name="difficulty" class="dropdown-item" onclick="select('Easy')">Easy</a>
+      <a name="difficulty" class="dropdown-item" onclick="select('Medium')">Medium</a>
+      <a name="difficulty" class="dropdown-item" onclick="select('Hard')">Hard</a>
     </div>
-  </div>
+  </div> -->
 <!-- </form> -->
-<br>
+  <!-- <br> -->
 <!-- Creates Start Button-->
-<form class="" action="/eightBall" method="post">
   <button class="btn start">Start</button>
+  <!-- <input class="btn start" type="submit" name="" value="Start Game"> -->
 </form>
 
   </div>
