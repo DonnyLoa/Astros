@@ -5,6 +5,28 @@ body{
     min-height: 100vh;
 }
 
+.boxed {
+  border: 3px solid black ;
+  top: 5px;
+  width: 100px;
+  height: 50px;
+  margin: 5px auto 0;
+  background: #6F3F7F;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: inset 0px 0px 25px rgba(0,0,0, 0.5);
+
+}
+
+#player1score{
+  text-align: center;
+  left: 5px;
+}
+#player2score{
+  text-align: center;
+  right: 5px;
+}
+
 .box{
     width: 1300px;
     height: 600px;
@@ -120,14 +142,35 @@ body { }
   to { transform:rotate(360deg); }
 }
 
+h1{
+  font-size: 15px;
+  color: black;
+}
 
+.astext{
+    background:none;
+    border:none;
+    /* margin:0;
+    padding:0; */
+    cursor: pointer;
+}
 
-
-h2 {
-  max-width:400px;
-  margin:150px auto;
-  color:darkgrey;
-  text-align:center;
+h2{
+  /* color: white; */
+  color: #6F3F7F;
+  font-size: 20px;
+  height: 100px;
+  margin-left: 460px;
+  padding-top: 1%;
+  margin-bottom: 50%;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #7F7AA1;
+  top: 5px;
+  max-width:350px;
+  /* margin:150px auto; */
 }
 a {
   color:white;
