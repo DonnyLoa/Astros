@@ -6,15 +6,28 @@
     <div class="box">
 
       <div id="header">
-      <h1>Ma8ic Trivia </h1>
+      <h1>GAME OVER </h1>
       </div>
   </head>
   <link rel="stylesheet" href="stylesheet/endgame.css">
   <body>
-    <p>Endgame</p>
+
     <form class="" action="/" method="post">
-      <input type="submit" name="" value="Replay Game">
+      <button class="btn start">Play Again</button>
     </form>
+    <p class = "vl"></p>
+    <div class="boxed" id="player1score">
+    <h3> {{ player_1 }} </h3>
+  </div>
+
+  <div class="boxed" id="player2score">
+  <h3> {{ player_2 }}</h3>
+  </div>
+  <div class = "end">
+    <h2 id = "pl1"> <br><br>{{ player_1 }} <br><br> Won!</h2>
+    <h2 id = "pl2"> <br><br>{{ player_2 }} <br><br> Lost :( </h2>
+  </div>
+
     <!-- <button onclick="goBack()" type="button" name="button">Replay</button>
 
     <script type="text/javascript">
