@@ -3,6 +3,36 @@ body{
     padding: 0;
     margin: 0;
     min-height: 100vh;
+
+}
+
+/* Player boxes */
+h1{
+  font-size: 15px;
+  color: black;
+}
+
+.boxed {
+  border: 3px solid black ;
+  top: 5px;
+  width: 100px;
+  height: 50px;
+  margin: 5px auto 0;
+  background: #6F3F7F;
+  border-radius: 15px;
+  position: absolute;
+  box-shadow: inset 0px 0px 25px rgba(0,0,0, 0.5);
+  display: flex;
+
+}
+
+#player1score{
+  text-align: center;
+  left: 5px;
+}
+#player2score{
+  text-align: center;
+  right: 5px;
 }
 
 .box{
@@ -29,6 +59,7 @@ body{
    -webkit-animation: yo 5s linear infinite;
    -moz-animation: yo 5s linear infinite;
     animation: yo 5s linear infinite;
+
 }
 
 .box::after{
@@ -72,6 +103,7 @@ body { }
   overflow:hidden; /* Removing this is interesting */
   animation:rotate 5s linear infinite;
   border:1px solid black;
+
 }
 .circle { border-radius:50%; }
 
@@ -121,13 +153,48 @@ body { }
 }
 
 
+.astext{
+    background:none;
+    border:none;
+    /* margin:0;
+    padding:0; */
+    cursor: pointer;
+}
+#time{
+  text-align: left;
+}
 
+.decision{
+  display: flex;
+  justify-content: space-around;
+}
 
-h2 {
-  max-width:400px;
-  margin:150px auto;
-  color:darkgrey;
-  text-align:center;
+#points{
+  text-align: right;
+}
+
+h5{
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    font-size: 22px;
+  }
+
+h2{
+  /* color: white; */
+  color: #6F3F7F;
+  font-size: 25px;
+  height: 100px;
+  margin-left: 460px;
+  padding-top: 1%;
+  margin-bottom: 50%;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #7F7AA1;
+  top: 5px;
+  max-width:350px;
+  /* margin:150px auto; */
 }
 a {
   color:white;
