@@ -401,10 +401,11 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
 
                 for answer in all_answers:
-                    self.response.write("<p>" + answer + "</p>")
+                    self.response.write("")
+
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers,answer=answer))
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')

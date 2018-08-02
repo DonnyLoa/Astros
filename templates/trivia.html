@@ -36,8 +36,9 @@
     <h2 id="n1">{{ player_1 }}</h2>
     <h2 id="n2">{{ player_2 }}</h2>
     <h2>{{ in_quiry }}</h2>
-    <h2>{{ all_answers }}</h2>
-
+    {% for answer in all_answers %}
+      <h2>{{ answer }}</h2>
+    {% endfor %}
 
     <!-- {% if player_1 %}
       <p>test</p>
@@ -86,15 +87,14 @@
 
   <body>
     <p id="countdown"></p>
-<<<<<<< HEAD
 
     <form class="" action="/results" method="post">
 
       <button class="button Submit">Submit</button>
-=======
+
     <form class="" action="/results1" method="post">
       <input type="submit" name="" value="Submit">
->>>>>>> master
+
     </form>
   </body>
 </html>
