@@ -199,6 +199,36 @@ class TitleScreen(BaseHandler):
         #
         # self.response.write(name_template.render(settings_data))
         #self.response.write(name_template.render())
+class MagicDecision2(BaseHandler):
+    def post(self):
+        magic_template = jinja_env.get_template('templates/Page2.html')
+
+        difficulty = self.request.get("difficulty")
+        self.session['difficulty'] = difficulty
+        difficulty = self.session.get('difficulty')
+        self.response.write("Difficulty: " + difficulty + "<br>")
+
+        category = self.request.get("category")
+        self.session['category'] = category
+        category = self.session.get('category')
+        self.response.write("Category: " + category + "<br>")
+
+        player_1 = self.request.get("player_1")
+        self.session['player_1'] = player_1
+        player_1 = self.session.get('player_1')
+        self.response.write("player_1: " + player_1 + "<br>")
+
+        player_2 = self.request.get("player_2")
+        self.session['player_2'] = player_2
+        player_2 = self.session.get('player_2')
+        self.response.write("player_2: " + player_2 + "<br>")
+
+        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+    def get(self):
+        magic_template = jinja_env.get_template('templates/Page2.html')
+
+        self.response.write(magic_template.render())
 
 class MagicDecision(BaseHandler):
     def post(self):
@@ -364,9 +394,9 @@ class Trivia(BaseHandler):
 
 # CATEGORY: ANIMALS DIFFCULTY: EASY
 #----------------------------------------------------------------------------------------
-class Results(BaseHandler):
+class Results1(BaseHandler):
     def post(self):
-        results_template = jinja_env.get_template('templates/results.html')
+        results_template = jinja_env.get_template('templates/results1.html')
 
         difficulty = self.session.get('difficulty')
         self.response.write(" Difficulty: " + difficulty)
@@ -383,7 +413,77 @@ class Results(BaseHandler):
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
     def get(self):
-        results_template = jinja_env.get_template('templates/results.html')
+        results_template = jinja_env.get_template('templates/results1.html')
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+class Results2(BaseHandler):
+    def post(self):
+        results_template = jinja_env.get_template('templates/results2.html')
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+    def get(self):
+        results_template = jinja_env.get_template('templates/results2.html')
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+class Results3(BaseHandler):
+    def post(self):
+        results_template = jinja_env.get_template('templates/results3.html')
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+    def get(self):
+        results_template = jinja_env.get_template('templates/results3.html')
 
         difficulty = self.session.get('difficulty')
         self.response.write(" Difficulty: " + difficulty)
@@ -445,7 +545,9 @@ app = webapp2.WSGIApplication([
     ('/seed-page', SeedPage),
     ('/eightBall', MagicDecision),
     ('/eightBall2', MagicDecision2),
-    ('/results', Results),
+    ('/results1', Results1),
+    ('/results2', Results2),
+    ('/results3', Results3),
     ('/endGame', EndGame),
 ], config=config,
    debug=True)
