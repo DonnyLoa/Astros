@@ -1,3 +1,14 @@
+#header {
+  color: White;
+  font-size: 20px;
+  height: 100px;
+  margin: 0px;
+  padding-top: 3%;
+  text-align: center;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 3px 3px 0px #333, 5px 5px 0px #999;
+}
 body{
     background:#111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */
     padding: 0;
