@@ -138,7 +138,10 @@ class TitleScreen(BaseHandler):
         player_2 = self.request.get("player_2")     # Second Player
         self.session['player_2'] = player_2
 
-        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+        text_box = self.request.get("Click to see the outcome")   # Page 2 Textbox
+        self.session['text_box'] = text_box
+
+        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
@@ -158,7 +161,12 @@ class TitleScreen(BaseHandler):
         player_2 = self.request.get("player_2")     # Second Player
         self.session['player_2'] = player_2
 
-        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+        text_box = self.request.get("Click to see the outcome")
+        self.session['text_box'] = text_box
+        # text_box = "Click to see the outcome"    # Page 2 Textbox
+        # self.session['player_2'] = text_box
+
+        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
         # name_template = jinja_env.get_template('templates/astros.html')
         # difficulty = self.request.get("difficulty") #Dee's Data variables
@@ -202,7 +210,12 @@ class MagicDecision(BaseHandler):
         player_2 = self.session.get('player_2')
         self.response.write("player_2: " + player_2 + "<br>")
 
-        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+# Page 2 Textbox
+        self.session['text_box'] = "Click to see the outcome"
+        text_box = self.session.get('text_box')
+        self.response.write(" text: " + text_box)
+
+        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2.html')
@@ -219,7 +232,11 @@ class MagicDecision(BaseHandler):
         player_2 = self.session.get('player_2')
         self.response.write(" player_2: " + player_2)
 
-        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+        self.session['text_box'] = "Click to see the outcome"
+        text_box = self.session.get('text_box')
+        self.response.write(" text: " + text_box)
+
+        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
 class MagicDecision2(BaseHandler):
     def post(self):
@@ -237,7 +254,11 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         self.response.write("player_2: " + player_2 + "<br>")
 
-        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+        self.session['text_box'] = "Click to continue"
+        text_box = self.session.get('text_box')
+        self.response.write(" text: " + text_box)
+
+        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2.html')
@@ -254,7 +275,11 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         self.response.write(" player_2: " + player_2)
 
-        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+        self.session['text_box'] = "Click to continue"
+        text_box = self.session.get('text_box')
+        self.response.write(" text: " + text_box)
+
+        self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 #------------------------------------------------------------------Personal Trivia Page that loads different data depending on difficulty and category
 class Trivia(BaseHandler):
     def post(self):

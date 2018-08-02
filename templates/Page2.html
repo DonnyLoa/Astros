@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="stylesheet/Page2.css">
 <body>
 <!-- Makes the Moving Ball-->
-     <form class="" action="/eightBall" method="post">
-        <button id="magic_button">Click to see the outcome</button>
+     <form class="" action="/eightBall2" method="post">
+        <button id="magic_button">{{ text_box }}</button>
      </form>
 
      <form class="" action="/trivia" method="post">
         <button class="astext" onclick="myFunction()" id="magic_button">
-        <h2>Click to continue </h2>
+        <h2>{{ text_box }}</h2>
       </button>
         <script type="text/javascript">
           //document.write(difficulty)
@@ -65,7 +65,7 @@
 </body>
 
 <div class="decision">
-  <h5 id="time"> Time allotted: </h5> <h5 id="points"> Worth:__points</h5>
+  <h5 id="time"> Time allotted: </h5> <h5 id="points"> Worth: __ points</h5>
 </div>
 <!-- Makes the Main Box Border round-->
      <style>
