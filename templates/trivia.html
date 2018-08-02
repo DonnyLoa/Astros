@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
-    <meta charset="utf-8">
-
     <title>Ma8ic Trivia</title>
-    <style media="screen">
-    #header{
-
-      text-align: center;
-    }
-    #n1{
-      color: white;
-     position: absolute; top: 5px; left: 5px; text-align: left;
-     }
-    #n2{
-      color: white;
-     position: absolute; top: 5px; right: 5px; text-align: right;
-     }
-    }
-    </style>
   </head>
-  <body>
+
+      <!-- Title Font-->
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <link rel="stylesheet" href="templates/astros.css">
-    <body style="background-color:#FEBC1F">
-      <div id="header">
+    <link rel="stylesheet" href="templates/trivia.css">
+    <style media="screen"> </style>
+
+<div class="box">
+    <div id="header">
       <h1>Ma8ic Trivia </h1>
-      <h2> Answer the question! </h1>
-      </div>
+    </div>
+    <!-- Makes the Main Box Border round-->
+         <style>
+         input[type=text] {
+           width: 70%;
+           padding: 12px 20px;
+           margin: 8px 0;
+           box-sizing: border-box;
+           border: none;
+           border-bottom: 2px solid white;
+           background-color: #0c0c0b;
+           top: 10%;
+           left: 10%;
+         }
+         </style>
+         </head>
+
+  <body>
+    <h2 id= "Answer"> Answer the question! </h1>
 
     <h2 id="n1">name1</h2>
     <h2 id="n2">name2</h2>
 
-    <title></title>
     <script>
       let countDownDate = new Date(6).getTime();
       let distance = countDownDate;

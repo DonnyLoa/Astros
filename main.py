@@ -176,7 +176,7 @@ class TitleScreen(BaseHandler):
 
 class MagicDecision(BaseHandler):
     def post(self):
-        magic_template = jinja_env.get_template('templates/magic_decision.html')
+        magic_template = jinja_env.get_template('templates/Page2.html')
 
         difficulty = self.request.get("difficulty")
         self.session['difficulty'] = difficulty
@@ -201,7 +201,7 @@ class MagicDecision(BaseHandler):
         self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
     def get(self):
-        magic_template = jinja_env.get_template('templates/magic_decision.html')
+        magic_template = jinja_env.get_template('templates/Page2.html')
         self.response.write(magic_template.render())
 #------------------------------------------------------------------Personal Trivia Page that loads different data depending on difficulty and category
 class Trivia(BaseHandler):
