@@ -1,11 +1,39 @@
 <!DOCTYPE html>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
 <head>
 <title> Ma8ic Trivia </title>
 </head>
-<link rel="stylesheet" href="Page2.css">
+<link rel="stylesheet" href="stylesheet/Page2.css">
 <body>
-
 <!-- Makes the Moving Ball-->
+     <form class="" action="/eightBall" method="post">
+        <button id="magic_button">Click to see the outcome</button>
+     </form>
+
+     <form class="" action="/trivia" method="post">
+        <button class="astext" onclick="myFunction()" id="magic_button">
+        <h2>Click to continue </h2>
+      </button>
+        <script type="text/javascript">
+          //document.write(difficulty)
+          //document.write(sessionStorage.difficulty);
+          let difficulty = {{ difficulty.difficulty }}
+
+          //   // def index():
+          //     // variable = request.args["variable"]
+          //
+          if (difficulty == "Easy"):
+            console.log(0);
+          else if (difficulty == "Less Easy"):
+            console.log(1);
+          else if (difficulty == "Waaaayyy Less Easy"):
+            console.log(2);
+        </script>
+    </form>
+  </body>
+</html>
+
 
   <div class="box">
     <div>
@@ -19,20 +47,20 @@
     <div class="small circle one"></div>
     <div class="small circle two"></div>
   </div>
-  <div >
+  <!-- <div >
     <form class= "k" action="/eightBall" method="post">
     <button class="astext">
-       <h2>Click to see the outcome </h2>
+
       </button>
     </form>
-  </div>
+  </div> -->
 <!-- Player boxes -->
   <div class="boxed" id="player1score">
-  <h1> Player 1 </h1>
+  <h1> {{player_1}} </h1>
 </div>
 
 <div class="boxed" id="player2score">
-<h1> Player 2 </h1>
+<h1> {{player_2}} </h1>
 </div>
 </body>
 
