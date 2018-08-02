@@ -14,7 +14,21 @@ h2{
   font-size: 15px;
   color: black;
 }
+.triword {
+    position: relative;
+    text-align: center;
+    color: white;
+}
 
+img{
+  max-width: 400;
+}
+.textal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .btn {
     border: none;
     background-color: inherit;
@@ -30,8 +44,8 @@ h2{
 .start {
   color: #39FF14;
   position: fixed;
-  bottom: 250;
-  margin-left: 575;
+  bottom: 168;
+  margin-left: 565;
 }
 
 

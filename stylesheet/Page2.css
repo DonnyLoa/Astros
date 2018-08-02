@@ -120,8 +120,11 @@ body { }
 
 .one:after, .two:after { animation:rotate 1.5s linear infinite reverse; }
 /* You can replace the images with anything, including gifs! */
-.one:after { background-image: url(); }
-.two:after { background-image: url(http://lord.xopl.com/ulpage3a/m8-ball.gif); }
+.one:after {
+  background-image: url(http://lord.xopl.com/ulpage3a/m8-ball.gif);
+
+            }
+.two:after { background-image: url( ); }
 
 .main {
   width:100%;
