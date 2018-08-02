@@ -147,7 +147,7 @@ class SeedPage(BaseHandler):
 class TitleScreen(BaseHandler):
     def get(self):
         start_template = jinja_env.get_template('templates/astros.html') #Html pages comes from Dee M
-        self.response.write(start_template.render())
+
         category = self.request.get("category")    # Category
         self.session['category'] = category
 
@@ -159,13 +159,15 @@ class TitleScreen(BaseHandler):
 
         player_2 = self.request.get("player_2")     # Second Player
         self.session['player_2'] = player_2
+
+        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
 
     def post(self):
         start_template = jinja_env.get_template('templates/astros.html') #Html pages comes from Dee M
-        self.response.write(start_template.render())
+
         category = self.request.get("category")    # Category
         self.session['category'] = category
 
@@ -177,6 +179,8 @@ class TitleScreen(BaseHandler):
 
         player_2 = self.request.get("player_2")     # Second Player
         self.session['player_2'] = player_2
+
+        self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
         # name_template = jinja_env.get_template('templates/astros.html')
         # difficulty = self.request.get("difficulty") #Dee's Data variables
@@ -232,10 +236,16 @@ class Trivia(BaseHandler):
         # difficulty = self.request.get("difficulty")
         # self.session['difficulty'] = difficulty
         difficulty = self.session.get('difficulty')
-        self.response.write("Difficulty: " + difficulty + "<br>")
+        self.response.write(" Difficulty: " + difficulty)
 
         category = self.session.get('category')
-        self.response.write("Category: " + category + "<br>")
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
 
         j = [""]
         all_answers = []
@@ -246,7 +256,7 @@ class Trivia(BaseHandler):
         if (category == "Animals"):             # Determines category and difficulty for question
             if (difficulty == "Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category))
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
                 in_quiry = easyAnimals.query().fetch()[j].animal_e_question
                 correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
@@ -279,7 +289,7 @@ class Trivia(BaseHandler):
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty))
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
 
                 in_quiry = hardAnimals.query().fetch()[j].animal_h_question
@@ -297,7 +307,7 @@ class Trivia(BaseHandler):
         elif (category == "Geography"):
             if (difficulty == "Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category))
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
                 in_quiry = easyGeography.query().fetch()[j].geo_e_question
                 correct_answer = easyGeography.query().fetch()[j].geo_e_correct
@@ -314,7 +324,7 @@ class Trivia(BaseHandler):
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty))
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
 
                 in_quiry = mediumGeography.query().fetch()[j].geo_m_question
@@ -332,7 +342,7 @@ class Trivia(BaseHandler):
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty))
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
 
                 in_quiry = hardGeography.query().fetch()[j].geo_h_question
@@ -353,226 +363,76 @@ class Trivia(BaseHandler):
 
 
 # CATEGORY: ANIMALS DIFFCULTY: EASY
-
-
-
-
-
-
 #----------------------------------------------------------------------------------------
-
-class Triv_a_e(webapp2.RequestHandler):
-
-    #with PyV8.JSContext(Global()) as ctxt:
-    #    the_number = ctxt.eval("var variable = passingVariable")
-    def post(self):
-        difficulty = self.request.get("difficulty")
-        self.response.write(difficulty)
-        #difficulty_set = self.request.get("difficulty_set")
-        #self.response.write(difficulty_set)
-
-        if (variable == 0):
-            self.response.write("test")
-            trivia_template = jinja_env.get_template('templates/trivia.html')
-        elif (variable == 1):
-            self.response.write("testing")
-            trivia_template = jinja_env.get_template('templates/results.html')
-
-
-        #self.response.write(trivia_template.render())
-        player = self.request.get("player")  #Dee's Data variables
-        points = self.request.get("points")  #Dee's Data variables
-        #counter = counter + 1
-        #generated_trivia = SeedPage(difficulty=difficulty,    #class with data from ^ comes from Dee H
-        #                         player=player,
-        #                         points=points)
-
-        #generated_trivia.put()
-
-        #all_trivia = trivia_questions.query().fetch()
-        #questionData = {'player':1,
-        #                'points':5}
-                       #'counter': counter}
-                       #'all_trivia': all_trivia}
-        trivia_data = {'line1': player,
-                       'line2': points}
-
-        trivia_template = jinja_env.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
-# CATEGORY: ANIMALS DIFFCULTY: EASY
-
-        j = [""]
-        all_answers = []
-
-    # def post(self):
-
-
-        #self.response.write(player)
-
-            #if (counter == 10):
-            #    trivia_template = jinja_env.get_template('templates/endgame.html')
-            #    self.response.write(trivia_template.render(trivia_data))
-
-
-        #player_data = questionData.query().fetch()[0].player
-        #points_data = questionData.query().fetch()[0].points
-        for i in range(1,10):
-             j = random.randint(1,10)
-
-        #print(easyAnimals.query().fetch())
-        in_quiry = easyAnimals.query().fetch()[j].animal_e_question
-        correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
-        incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
-        self.response.write(in_quiry)
-        #self.response.write(player_data)
-        #self.response.write(points_data)
-        # self.response.write(points)
-            # json_response_in_quiry = json.loads(in_quiry)
-            # json_response_answers = json.loads(answers)
-            #
-            # question = json_response
-            # question_answers = json_response
-
-        all_answers = [correct_answer]
-        for g in incorrect_answers:
-            all_answers.append(g)
-        shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-
-        #self.response.write(counter)
-
-        #trivia_template = jinja_env.get_template('templates/trivia.html')
-        #self.response.write(trivia_template.render(trivia_data))
-        #answer_template = jinja_env.get_template('templates/main.html')
-        #test_dict = {
-        #    'answer1': all_answers[0],
-        #    'answer2': all_answers[1],
-        #    'answer3': all_answers[2],
-        #    'answer4': all_answers[3],
-        #}
-
-        #self.response.write(answer_template.render(test_dict))
-
-    def get(self):
-        trivia_template = jinja_env.get_template('templates/trivia.html')
-        self.response.write(trivia_template.render(trivia_data))
-
-        #self.response.write(trivia_template.render())
-# CATEGORY: ANIMALS DIFFICULTY: MEDIUM
-class Triv_a_m(webapp2.RequestHandler):
-    def post(self):
-        for i in range(0,10):
-            j= random.randint(0,10)
-        in_quiry = mediumAnimals.query().fetch()[j].animal_m_question
-        answers = mediumAnimals.query().fetch()[j].animal_m_correct
-        incorrect_answers = mediumAnimals.query().fetch()[j].animal_m_wrong
-        self.response.write("<br>" + in_quiry )
-
-        all_answers = [correct_answer]
-        for h in incorrect_answers:
-            all_answers.append(h)
-            shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-         # CATEGORY: ANIMALS DIFFICULTY: HARD
-class Triv_a_h(webapp2.RequestHandler):
-    def post(self):
-        for i in range(0,10):
-            j= random.randint(0,10)
-        in_quiry = hardAnimals.query().fetch()[j].animal_h_question
-        answers = hardAnimals.query().fetch()[j].animal_h_correct
-        incorrect_answers = hardAnimals.query().fetch()[j].animal_h_wrong
-        self.response.write("<br>" + in_quiry )
-
-        all_answers = [correct_answer]
-        for i in incorrect_answers:
-            all_answers.append(i)
-            shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-
-         # CATEGORY: GEOGRAPHY DIFFICULTY: EASY
-class Triv_g_e(webapp2.RequestHandler):
-    def post(self):
-        for i in range(0,10):
-            j= random.randint(0,10)
-        in_quiry = easyGeography.query().fetch()[j].geo_e_question
-        answers = easyGeography.query().fetch()[j].geo_e_correct
-        incorrect_answers = easyGeography.query().fetch()[j].geo_e_wrong
-        self.response.write("<br>" + in_quiry )
-
-        all_answers = [correct_answer]
-        for k in incorrect_answers:
-            all_answers.append(k)
-            shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-
-         # CATEGORY: GEOGRAPHY DIFFICULTY: MEDIUM
-class Triv_g_m(webapp2.RequestHandler):
-    def post(self):
-        for i in range(0,10):
-            j= random.randint(0,10)
-        in_quiry = mediumGeography.query().fetch()[j].geo_m_question
-        answers = mediumGeography.query().fetch()[j].geo_m_correct
-        incorrect_answers = mediumGeography.query().fetch()[j].geo_m_wrong
-        self.response.write("<br>" + in_quiry )
-
-        all_answers = [correct_answer]
-        for l in incorrect_answers:
-            all_answers.append(l)
-            shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-         # CATEGORY GEOGRAPHY DIFFICULTY: HARD
-class Triv_g_h(webapp2.RequestHandler):
-    def post(self):
-        for i in range(0,10):
-            j= random.randint(0,10)
-        in_quiry = hardGeography.query().fetch()[j].geo_h_question
-        answers = hardGeography.query().fetch()[j].geo_h_correct
-        incorrect_answers = hardGeography.query().fetch()[j].geo_h_wrong
-        self.response.write("<br>" + in_quiry)
-        all_answers = [correct_answer]
-        for m in incorrect_answers:
-            all_answers.append(m)
-            shuffle(all_answers)
-
-        for answer in all_answers:
-            self.response.write("<p>" + answer + "</p>")
-
-            trivia_template = jinja_env.get_template('templates/trivia.html')
-            #self.response.write(trivia_template.render())
-
-        def get(self):
-            trivia_template = jinja_env.get_template('templates/trivia.html')
-            self.response.write(trivia_template.render(trivia_data))
-
-
-
 class Results(BaseHandler):
     def post(self):
         results_template = jinja_env.get_template('templates/results.html')
-        self.response.write(results_template.render())
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
     def get(self):
         results_template = jinja_env.get_template('templates/results.html')
-        self.response.write(results_template.render())
 
-class EndGame(webapp2.RequestHandler):
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
+
+class EndGame(BaseHandler):
     def post(self):
         end_template = jinja_env.get_template('templates/endgame.html')
-        self.response.write(end_template.render())
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(end_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
     def get(self):
         end_template = jinja_env.get_template('templates/endgame.html')
-        self.response.write(end_template.render())
+
+        difficulty = self.session.get('difficulty')
+        self.response.write(" Difficulty: " + difficulty)
+
+        category = self.session.get('category')
+        self.response.write(" Category: " + category)
+
+        player_1 = self.session.get('player_1')
+        self.response.write(" player_1: " + player_1)
+
+        player_2 = self.session.get('player_2')
+        self.response.write(" player_2: " + player_2)
+
+        self.response.write(end_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
 config = {}
 config['webapp2_extras.sessions'] = {
@@ -584,6 +444,7 @@ app = webapp2.WSGIApplication([
     ('/trivia', Trivia),
     ('/seed-page', SeedPage),
     ('/eightBall', MagicDecision),
+    ('/eightBall2', MagicDecision2),
     ('/results', Results),
     ('/endGame', EndGame),
 ], config=config,
