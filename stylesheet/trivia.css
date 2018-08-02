@@ -12,20 +12,59 @@
 }
 
 #Answer{
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Roboto Mono', monospace;
+  color:white;
+  position: center;
+  text-align: center;
+  height: 50px;
+  margin:0px;
 }
 
+#Answer2{
+  font-family: 'Roboto Mono', monospace;
+  color:white;
+  position: center;
+  text-align: center;
+  height: 50px;
+  margin:0px;
+}
+
+#countdown{
+  font-family: 'Roboto Mono', monospace;
+  color:white;
+  position: center;
+  text-align: center;
+  height: 50px;
+  margin:0px;
+}
+
+.button{
+  border:none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+  position: center; 
+}
+.Submit{
+  color: #39FF14
+}
+
+
 #n1{
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Roboto Mono', monospace;
   color: white;
   position: absolute; top: 5px; left: 5px; text-align: left;
  }
 
 #n2{
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Roboto Mono', monospace;
   color: white;
   position: absolute; top: 5px; right: 5px; text-align: right;
  }
+
 
 
 /* Rainbow Box Corners */

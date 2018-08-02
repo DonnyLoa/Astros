@@ -7,7 +7,7 @@
 
       <!-- Title Font-->
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <link rel="stylesheet" href="templates/trivia.css">
+    <link rel="stylesheet" href="stylesheet/trivia.css">
     <style media="screen"> </style>
 
 <div class="box">
@@ -31,13 +31,13 @@
          </head>
 
   <body>
-    <h2 id= "Answer"> Answer the question! </h1>
+    <h2 id= "Answer"> Answer In Time! </h1>
 
     <h2 id="n1">{{ player_1 }}</h2>
     <h2 id="n2">{{ player_2 }}</h2>
 
-    <script>
-      let countDownDate = new Date(6).getTime();
+    <script id="Answer2">
+      let countDownDate = new Date(1000000000).getTime();
       let distance = countDownDate;
       let seconds = distance;
 
@@ -59,17 +59,17 @@
         if (time == 0) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results";
-          }, 1000);
+          }, 1000000000);
         }
         else if (time == 1) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results";
-          }, 6000);
+          }, 1000000000);
         }
         else if (time == 2) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results";
-          }, 10000);
+          }, 1000000000);
         }
       }
 
@@ -79,8 +79,10 @@
 
   <body>
     <p id="countdown"></p>
+
     <form class="" action="/results" method="post">
-      <input type="submit" name="" value="Submit">
+
+      <button class="button Submit">Submit</button>
     </form>
   </body>
 </html>
