@@ -163,6 +163,13 @@ class TitleScreen(BaseHandler):
         text_box = self.request.get("Click to see the outcome")   # Page 2 Textbox
         self.session['text_box'] = text_box
 
+        # numRounds = self.request.get("1")
+        # self.session['numRounds'] = numRounds
+
+        #Num rounds dictionary-----------------------
+
+        # convertNum = self.session.ToInt32();
+
         self.response.write(start_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
     #def post(self):
@@ -186,8 +193,9 @@ class TitleScreen(BaseHandler):
         text_box = self.request.get("Click to see the outcome")
         self.session['text_box'] = text_box
 
-        text_box = self.request.get("Click to see the outcome")
-        self.session['text_box'] = text_box
+        # numRounds = self.request.get("1")
+        # self.session['numRounds'] = numRounds
+        # convertNum = Convert.ToInt32(self.session["numRounds"]);
         # text_box = "Click to see the outcome"    # Page 2 Textbox
         # self.session['player_2'] = text_box
 
@@ -328,7 +336,6 @@ class Trivia(BaseHandler):
         if (category == "Animals"):             # Determines category and difficulty for question
             if (difficulty == "Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
                 in_quiry = easyAnimals.query().fetch()[j].animal_e_question
                 correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
@@ -340,12 +347,14 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
+
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty))
+
                 in_quiry = mediumAnimals.query().fetch()[j].animal_m_question
                 correct_answer = mediumAnimals.query().fetch()[j].animal_m_correct
                 incorrect_answers = mediumAnimals.query().fetch()[j].animal_m_wrong
@@ -356,13 +365,13 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
+
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
-
 
                 in_quiry = hardAnimals.query().fetch()[j].animal_h_question
                 correct_answer = hardAnimals.query().fetch()[j].animal_h_correct
@@ -374,12 +383,13 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
+
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
         elif (category == "Geography"):
             if (difficulty == "Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
                 in_quiry = easyGeography.query().fetch()[j].geo_e_question
                 correct_answer = easyGeography.query().fetch()[j].geo_e_correct
@@ -391,13 +401,13 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
+
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
-
 
                 in_quiry = mediumGeography.query().fetch()[j].geo_m_question
                 correct_answer = mediumGeography.query().fetch()[j].geo_m_correct
@@ -409,13 +419,13 @@ class Trivia(BaseHandler):
                     all_answers.append(h)
                     shuffle(all_answers)
 
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
+
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
-                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
-
 
                 in_quiry = hardGeography.query().fetch()[j].geo_h_question
                 correct_answer = hardGeography.query().fetch()[j].geo_h_correct
@@ -426,6 +436,8 @@ class Trivia(BaseHandler):
                 for h in incorrect_answers:
                     all_answers.append(h)
                     shuffle(all_answers)
+
+                self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
 
                 for answer in all_answers:
                     self.response.write("<p>" + answer + "</p>")
