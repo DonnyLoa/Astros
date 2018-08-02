@@ -51,21 +51,30 @@
      </head>
 <body>
 <!-- Player 1 and Player 2 Name Insert-->
+<br>
+
      <p>Enter Players:  </p>
-     <form id="NameInsert" action="">
-       <label for="name1">Player 1</label>
+     <!-- <form id="NameInsert" action=""> -->
+       <!-- <label for="name1">Player 1</label>
        <input type="text" id="name1" name="player_1">
        <br>
        <label for="name2">Player 2</label>
-       <input type="text" id="name2" name="player_2">
-     </form>
-     <body>
+       <input type="text" id="name2" name="player_2"> -->
+     <!-- </form> -->
+<body>
 <!-- Creates Selection Option-->
-<br>
-<br>
 
 <!-- <form class="" action="" method="post" name="selectionText"> -->
 <form class="" action="/eightBall" method="post">
+
+  <label for="name1">Player 1</label>
+  <input type="text" id="name1" name="player_1">
+  <br>
+  <label for="name2">Player 2</label>
+  <input type="text" id="name2" name="player_2">
+  <br>
+  <br>
+
   <div class="input-field col s12">
     <select name="category" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <option value="" disabled selected>Choose your Category</option>

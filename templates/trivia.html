@@ -33,8 +33,8 @@
   <body>
     <h2 id= "Answer"> Answer the question! </h1>
 
-    <h2 id="n1">name1</h2>
-    <h2 id="n2">name2</h2>
+    <h2 id="n1">{{ player_1 }}</h2>
+    <h2 id="n2">{{ player_2 }}</h2>
 
     <script>
       let countDownDate = new Date(6).getTime();
@@ -79,8 +79,6 @@
 
   <body>
     <p id="countdown"></p>
-    <h2>{{ player_1 }}</h2>
-    <h2>{{ player_2 }}</h2>
     <form class="" action="/results" method="post">
       <input type="submit" name="" value="Submit">
     </form>
