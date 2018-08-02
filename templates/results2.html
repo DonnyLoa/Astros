@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ma8ic Trivia</title>
+
+    <div class="box">
+
+
+          <div id="header">
+          <h1>Ma8ic Trivia </h1>
+          </div>
+  </head>
+
+  <link rel="stylesheet" href="stylesheet/results2.css">
+  <body>
+    <div class="boxed" id="player1score">
+    <h2> {{ player_1 }}</h2>
+  </div>
+
+  <div class="boxed" id="player2score">
+  <h2> {{ player_2 }}</h2>
+  </div>
+    <div id="meme-div">
+      <h2 id="line1">{{ line1 }}</h2>
+      <h2 id="line2">{{ line2 }}</h2>
+    </div>
+
+    <div class = "triword">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Magic_eight_ball.png" alt="magic 8-ball">
+      <div class = "textal">WRONG</div>
+
+    </div>
+
+
+    <form class="" action="/eightBall2" method="post">
+      <button class="btn start">Next Question</button>
+      <!-- <input type="submit" name="" value="Next Question"> -->
+    </form>
+<!--
+    <form class="" action="/endGame" method="post">
+      <button class="btn start">Continue</button>
+
+    <!-  <input type="submit" name="button" value="Continue"> -->
+    <!-- </form> -->
+
+
+
+      <!--<script type="text/javascript">
+        function goBack() {
+          window.history.go(-2);
+        }
+      </script>-->
+  </body>
+</html>
