@@ -284,7 +284,7 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write("player_2: " + player_2 + "<br>")
 
-        self.session['text_box'] = "Click to continue"
+        self.session['text_box'] = "Continue"
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
@@ -305,7 +305,7 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write(" player_2: " + player_2)
 
-        self.session['text_box'] = "Click to continue"
+        self.session['text_box'] = "Continue"
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
