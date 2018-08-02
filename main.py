@@ -185,6 +185,9 @@ class TitleScreen(BaseHandler):
 
         text_box = self.request.get("Click to see the outcome")
         self.session['text_box'] = text_box
+
+        text_box = self.request.get("Click to see the outcome")
+        self.session['text_box'] = text_box
         # text_box = "Click to see the outcome"    # Page 2 Textbox
         # self.session['player_2'] = text_box
 
@@ -207,7 +210,7 @@ class TitleScreen(BaseHandler):
         #
         # self.response.write(name_template.render(settings_data))
         #self.response.write(name_template.render())
-class MagicDecision2(BaseHandler):
+class MagicDecision(BaseHandler):
     def post(self):
         magic_template = jinja_env.get_template('templates/Page2.html')
 
@@ -243,7 +246,6 @@ class MagicDecision2(BaseHandler):
 
         self.response.write(magic_template.render())
 
-<<<<<<< HEAD
         self.session['text_box'] = "Click to see the outcome"
         text_box = self.session.get('text_box')
         self.response.write(" text: " + text_box)
@@ -251,42 +253,38 @@ class MagicDecision2(BaseHandler):
         self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
 class MagicDecision2(BaseHandler):
-=======
-class MagicDecision(BaseHandler):
->>>>>>> master
     def post(self):
-        magic_template = jinja_env.get_template('templates/Page2.html')
+        magic_template = jinja_env.get_template('templates/Page2-2.html')
 
-        difficulty = self.request.get("difficulty")
-        self.session['difficulty'] = difficulty
+        # difficulty = self.request.get("difficulty")
+        # self.session['difficulty'] = difficulty
         difficulty = self.session.get('difficulty')
         self.response.write("Difficulty: " + difficulty + "<br>")
 
-        category = self.request.get("category")
-        self.session['category'] = category
+        # category = self.request.get("category")
+        # self.session['category'] = category
         category = self.session.get('category')
         self.response.write("Category: " + category + "<br>")
 
-        player_1 = self.request.get("player_1")
-        self.session['player_1'] = player_1
+        # player_1 = self.request.get("player_1")
+        # self.session['player_1'] = player_1
         player_1 = self.session.get('player_1')
-        self.response.write("player_1: " + player_1 + "<br>")
+        # self.response.write("player_1: " + player_1 + "<br>")
 
-        player_2 = self.request.get("player_2")
-        self.session['player_2'] = player_2
+        # player_2 = self.request.get("player_2")
+        # self.session['player_2'] = player_2
         player_2 = self.session.get('player_2')
-        self.response.write("player_2: " + player_2 + "<br>")
+        # self.response.write("player_2: " + player_2 + "<br>")
 
         self.session['text_box'] = "Click to continue"
         text_box = self.session.get('text_box')
-        self.response.write(" text: " + text_box)
+        # self.response.write(" text: " + text_box)
 
         self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
 
     def get(self):
-        magic_template = jinja_env.get_template('templates/Page2.html')
+        magic_template = jinja_env.get_template('templates/Page2-2.html')
 
-<<<<<<< HEAD
         difficulty = self.session.get('difficulty')
         self.response.write(" Difficulty: " + difficulty)
 
@@ -294,19 +292,16 @@ class MagicDecision(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.session['text_box'] = "Click to continue"
         text_box = self.session.get('text_box')
-        self.response.write(" text: " + text_box)
+        # self.response.write(" text: " + text_box)
 
         self.response.write(magic_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,text_box=text_box))
-=======
-        self.response.write(magic_template.render())
->>>>>>> master
 #------------------------------------------------------------------Personal Trivia Page that loads different data depending on difficulty and category
 class Trivia(BaseHandler):
     def post(self):
@@ -452,10 +447,10 @@ class Results1(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -469,10 +464,10 @@ class Results1(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -487,10 +482,10 @@ class Results2(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -504,10 +499,10 @@ class Results2(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -522,10 +517,10 @@ class Results3(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -539,10 +534,10 @@ class Results3(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(results_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -557,10 +552,10 @@ class EndGame(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(end_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
@@ -574,10 +569,10 @@ class EndGame(BaseHandler):
         self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+        # self.response.write(" player_1: " + player_1)
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+        # self.response.write(" player_2: " + player_2)
 
         self.response.write(end_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2))
 
