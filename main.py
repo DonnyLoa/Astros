@@ -711,8 +711,6 @@ class Results1(BaseHandler):
         # self.session['correct_answer'] = correct_answer
         answer = self.request.get('answer')
         correct_answer = self.session.get('correct_answer')
-        print(answer)
-        print(correct_answer)
 
 
         self.response.write(results_template.render(difficulty=difficulty,
