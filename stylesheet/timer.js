@@ -9,17 +9,17 @@ let time = Math.random() * math.floor(3);
 function myFunction(time) {
   if (time == 0) {
     setTimeout(function() {
-      window.location.href = "http://localhost:8080/results";
+      window.location.href = "http://localhost:8080/results3";
     }, 10000000);
   }
   else if (time == 1) {
     setTimeout(function() {
-      window.location.href = "http://localhost:8080/results";
+      window.location.href = "http://localhost:8080/results3";
     }, 5000);
   }
   else if (time == 2) {
     setTimeout(function() {
-      window.location.href = "http://localhost:8080/results";
+      window.location.href = "http://localhost:8080/results3";
     }, 10000);
   }
 }

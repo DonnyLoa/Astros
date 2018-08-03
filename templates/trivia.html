@@ -41,6 +41,17 @@
     <h2 id="n2">{{ player_2 }}</h2>
     <h2 id="Question">{{ in_quiry }}</h2>
 
+<<<<<<< HEAD
+=======
+    {% if currentPlayer == "First" %}
+      <h2>{{ player_1 }}'s Turn</h2>
+    {% else if currentPlayer == "Second" %}
+      <h2>{{ player_2 }}'s Turn</h2>
+
+    <!-- {% if player_1 %}
+      <p>test</p>
+    {% endif %} -->
+>>>>>>> master
 
 <br>
 <br>
@@ -95,6 +106,7 @@
   <body>
     <p id="countdown"></p>
 
+<<<<<<< HEAD
 
 
 
@@ -106,6 +118,10 @@
 
       <input type="submit" class="button Submit"></button>
 
+=======
+    <form class="" action="/results1" method="post">
+      <button class="button Submit">Submit</button>
+>>>>>>> master
     </form>
   </body>
 </html>
