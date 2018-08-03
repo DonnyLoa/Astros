@@ -170,7 +170,7 @@ class SeedPage(BaseHandler):
          #     points = x["ourPoints"]
          #     )
          #
-<<<<<<< HEAD
+
          # a_m_response = urlfetch.fetch(animalsMediumEndPoint).content
          # json_a_m_response = json.loads(a_m_response)
          # a_m_results = json_a_m_response["results"]
@@ -239,8 +239,7 @@ class SeedPage(BaseHandler):
          #     points = x["ourPoints"]
          #     )
 
-=======
->>>>>>> master
+
          # randomizedData.put()
          # dominzedData.put()
 
@@ -364,7 +363,7 @@ class MagicDecision(BaseHandler):
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box))
+        text_box=text_box,))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2.html')
@@ -438,25 +437,6 @@ class MagicDecision2(BaseHandler):
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
         text_box=text_box))
-
-
-    def post(self):
-        magic_template = jinja_env.get_template('templates/Page2-2.html')
-        def randTime():
-            time = [15000, 30000]
-            return random.choice(time())
-            print randTime()
-            self.response.write(randTime())
-
-        def randPoints():
-            return random.choice([5, 10])
-
-            self.response.write(randPoints())
-
-        self.response.write(magic_template.render(randTime()))
-
-
-
 #------------------------------------------------------------------Personal Trivia Page that loads different data depending on difficulty and category
 class Trivia(BaseHandler):
     def post(self):
@@ -473,34 +453,6 @@ class Trivia(BaseHandler):
 
         player_2 = self.session.get('player_2')
         self.response.write(" player_2: " + player_2)
-
-        # store player points
-
-        player1_points = [10]
-
-        def initialp1_score():
-            return [0]
-
-        def cur_p1points():
-            return player1_points[+5]
-
-        def affect_p1points(delta):
-            player1_points.append(cur_p1points() + delta)
-            print(cur_p1points())
-
-        player2_points = [10]
-
-        def initialp2_score():
-            return [0]
-
-        def cur_p2points():
-            return player2_points[+1]
-
-        def affect_p2points(delta):
-            player2_points.append(cur_p2points() + delta)
-            return cur_p2points()
-
-
 
         # numRounds[0] = "Yes"
 
@@ -527,13 +479,10 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
-<<<<<<< HEAD
-=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
                 in_quiry=in_quiry,all_answers=all_answers,answer=answer))
->>>>>>> master
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -551,13 +500,10 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
-<<<<<<< HEAD
-=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
                 in_quiry=in_quiry,all_answers=all_answers,answer=answer))
->>>>>>> master
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
