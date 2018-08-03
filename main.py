@@ -170,7 +170,7 @@ class SeedPage(BaseHandler):
          #     points = x["ourPoints"]
          #     )
          #
-<<<<<<< HEAD
+
          # a_m_response = urlfetch.fetch(animalsMediumEndPoint).content
          # json_a_m_response = json.loads(a_m_response)
          # a_m_results = json_a_m_response["results"]
@@ -239,8 +239,6 @@ class SeedPage(BaseHandler):
          #     points = x["ourPoints"]
          #     )
 
-=======
->>>>>>> master
          # randomizedData.put()
          # dominzedData.put()
 
@@ -276,12 +274,10 @@ class TitleScreen(BaseHandler):
         # self.session['numRounds'] = numRounds
 
         # #Num rounds dictionary-----------------------
-        numRounds = []
-
         # convertNum = self.session.ToInt32();
 
         self.response.write(start_template.render(difficulty=difficulty,category=category,
-        player_1=player_1,player_2=player_2,text_box=text_box,numRounds=numRounds))
+        player_1=player_1,player_2=player_2,text_box=text_box))
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
@@ -312,7 +308,7 @@ class TitleScreen(BaseHandler):
 
         self.response.write(start_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box,numRounds=numRounds))
+        text_box=text_box))
 
         # name_template = jinja_env.get_template('templates/astros.html')
         # difficulty = self.request.get("difficulty") #Dee's Data variables
@@ -407,12 +403,15 @@ class MagicDecision2(BaseHandler):
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
-        # numRounds[0] = "Yes"
+        time = [15,30]
+
+        i = random.randint(0,1)
+        timer = time[i]
 
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box))
+        text_box=text_box,timer=timer))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2-2.html')
@@ -437,23 +436,23 @@ class MagicDecision2(BaseHandler):
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box))
+        text_box=text_box,timer=timer))
 
 
-    def post(self):
-        magic_template = jinja_env.get_template('templates/Page2-2.html')
-        def randTime():
-            time = [15000, 30000]
-            return random.choice(time())
-            print randTime()
-            self.response.write(randTime())
-
-        def randPoints():
-            return random.choice([5, 10])
-
-            self.response.write(randPoints())
-
-        self.response.write(magic_template.render(randTime()))
+    # def post(self):
+    #     magic_template = jinja_env.get_template('templates/Page2-2.html')
+        # def randTime():
+            # time = [15000, 30000]
+        #     return random.choice(time())
+        #     print randTime()
+        #     self.response.write(randTime())
+        #
+        # def randPoints():
+        #     return random.choice([5, 10])
+        #
+        #     self.response.write(randPoints())
+        #
+        # self.response.write(magic_template.render(randTime()))
 
 
 
@@ -503,9 +502,14 @@ class Trivia(BaseHandler):
 
 
         # numRounds[0] = "Yes"
-
+        time = [15000,30000]
         j = [""]
         all_answers = []
+
+        randomPlayer = random.randint(0,1)
+
+        i = random.randint(0,1)
+        timer = time[i]
 
         for i in range(0,10):
             j = random.randint(0,10)
@@ -527,16 +531,13 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
-<<<<<<< HEAD
-=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
->>>>>>> master
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
             elif (difficulty == "Less Easy"):
-                trivia_template = jinja_env.get_template('templates/trivia.html')
+                trivia_template = jinja_env.get_template('/templates/trivia.html')
 
                 in_quiry = mediumAnimals.query().fetch()[j].animal_m_question
                 correct_answer = mediumAnimals.query().fetch()[j].animal_m_correct
@@ -551,13 +552,10 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
-<<<<<<< HEAD
-=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
->>>>>>> master
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -578,7 +576,7 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
         elif (category == "Geography"):
             if (difficulty == "Easy"):
@@ -600,7 +598,7 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -621,7 +619,7 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -642,7 +640,7 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
 
 
         # trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -666,11 +664,8 @@ class Results1(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write(" player_2: " + player_2)
 
-        numRounds[0] = "Yes"
-        numRounds.append("Yes")
-
         self.response.write(results_template.render(difficulty=difficulty,
-        category=category,player_1=player_1,player_2=player_2,numRounds=numRounds))
+        category=category,player_1=player_1,player_2=player_2))
 
     def get(self):
         results_template = jinja_env.get_template('templates/results1.html')
@@ -687,11 +682,8 @@ class Results1(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write(" player_2: " + player_2)
 
-        numRounds[0] = "Yes"
-        numRounds.append("Yes")
-
         self.response.write(results_template.render(difficulty=difficulty,
-        category=category,player_1=player_1,player_2=player_2,numRounds=numRounds))
+        category=category,player_1=player_1,player_2=player_2))
 
 class Results2(BaseHandler):
     def post(self):
