@@ -374,9 +374,9 @@ class MagicDecision(BaseHandler):
         text_box = self.session.get('text_box')
         self.response.write(" text: " + text_box)
 
-        self.response.write(magic_template.render(difficulty=difficulty,
-        category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box,numRounds=numRounds))
+        # self.response.write(magic_template.render(difficulty=difficulty,
+        # category=category,player_1=player_1,player_2=player_2,
+        # text_box=text_box,))
 
 class MagicDecision2(BaseHandler):
     def post(self):
@@ -408,19 +408,25 @@ class MagicDecision2(BaseHandler):
 
         # numRounds[0] = "Yes"
 
+        play = [player_1, player_2]
+
+        whoplays= random.choice(play)
+        self.session['whoplays'] = whoplays
+        whoplays = self.session.get('whoplays')
+
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box))
+        text_box=text_box, whoplays=whoplays))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2-2.html')
 
         difficulty = self.session.get('difficulty')
-        self.response.write(" Difficulty: " + difficulty)
+        # self.response.write(" Difficulty: " + difficulty)
 
         category = self.session.get('category')
-        self.response.write(" Category: " + category)
+        # self.response.write(" Category: " + category)
 
         player_1 = self.session.get('player_1')
         # self.response.write(" player_1: " + player_1)

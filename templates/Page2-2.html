@@ -6,31 +6,19 @@
 </head>
 <link rel="stylesheet" href="stylesheet/Page2.css">
 <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 <body>
 <!-- Makes the Moving Ball-->
      <!-- <form class="" action="/eightBall2" method="post">
         <button class="astext" id="magic_button">{{ text_box }}</button>
      </form> -->
-
-     <form class="" action="/trivia" method="post">
+     <div class="decision">
+       <h5 > It's {{ whoplays }} turn </h5>
+     </div>
+     <form action="/trivia" method="post">
         <button class="astext" onclick="myFunction()" id="magic_button">
-        <h2>{{ text_box }}</h2>
+        <h2<span class= "header">{{ text_box }}</span></h2>
       </button>
-        <!-- <script type="text/javascript">
-          //document.write(difficulty)
-          //document.write(sessionStorage.difficulty);
-          let difficulty = {{ difficulty.difficulty }}
-
-          //   // def index():
-          //     // variable = request.args["variable"]
-          //
-          if (difficulty == "Easy"):
-            console.log(0);
-          else if (difficulty == "Less Easy"):
-            console.log(1);
-          else if (difficulty == "Waaaayyy Less Easy"):
-            console.log(2);
-        </script> -->
     </form>
   </body>
 </html>
@@ -65,9 +53,7 @@
 </div>
 </body>
 
-<div class="decision">
-  <h5 id="time"> Time allotted: </h5> <h5 id="points"> Worth: __ points</h5>
-</div>
+
 <!-- Makes the Main Box Border round-->
      <style>
      input[type=text] {
