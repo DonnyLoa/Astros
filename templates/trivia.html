@@ -6,14 +6,19 @@
   </head>
 
       <!-- Title Font-->
+    <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet/trivia.css">
     <style media="screen"> </style>
 
 <div class="box">
-    <div id="header">
-      <h1>Ma8ic Trivia </h1>
-    </div>
+<br>
+<center>
+<h1>
+<div><span class="header">Ma8ic Trivia</span></div>
+</h1>
+</center>
     <!-- Makes the Main Box Border round-->
          <style>
          input[type=text] {
@@ -31,14 +36,11 @@
          </head>
 
   <body>
-    <h2 id= "Answer"> Answer In Time! </h1>
+    <h2 id= "Answer"> Answer the question on time! </h1>
 
     <h2 id="n1">{{ player_1 }}</h2>
     <h2 id="n2">{{ player_2 }}</h2>
-    <h2>{{ in_quiry }}</h2>
-    {% for answer in all_answers %}
-      <h2>{{ answer }}</h2>
-    {% endfor %}
+    <h2 id="Question">{{ in_quiry }}</h2>
 
     <h2>{{ numRounds }}</h2>
 
@@ -49,9 +51,12 @@
     {% if currentPlayer == "player_2" %}
       <button type="button" name="button">Testers</button>
     {% endif %} -->
+>>>>>>> 3bd7b9f1947da6ad2ed5e2d633303acc09af0600
 
+<br>
+<br>
     <script id="Answer2">
-      let countDownDate = new Date(1000000000).getTime();
+      let countDownDate = new Date(5).getTime();
       let distance = countDownDate;
       let seconds = distance;
 
@@ -68,34 +73,50 @@
       }, 1000);
 
       let time = 1;
+      function click() {
 
+      }
       function myFunction(time) {
         if (time == 0) {
           setTimeout(function() {
-            window.location.href = "http://localhost:8080/results";
+            window.location.href = "http://localhost:8080/results1";
           }, 1000000000);
         }
         else if (time == 1) {
           setTimeout(function() {
-            window.location.href = "http://localhost:8080/results";
+            window.location.href = "http://localhost:8080/results1";
           }, 1000000000);
         }
         else if (time == 2) {
           setTimeout(function() {
-            window.location.href = "http://localhost:8080/results";
+            window.location.href = "http://localhost:8080/results1";
           }, 1000000000);
         }
       }
 
       myFunction(time);
+
+      function inputFunction(time) {
+
+      }
+
     </script>
   </head>
 
   <body>
     <p id="countdown"></p>
 
-    <form class="" action="/results1" method="post">
-      <button class="button Submit">Submit</button>
+
+
+
+    <form class="" id= "results1" action="/results1" method="post">
+      {% for answer in all_answers %}
+        <input type="radio" name="answer" value="">{{ answer }}<br>
+      {% endfor %}
+
+
+      <input type="submit" class="button Submit"></button>
+
     </form>
   </body>
 </html>
