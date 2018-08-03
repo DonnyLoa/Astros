@@ -153,104 +153,6 @@ class SeedPage(BaseHandler):
                 geo_h_wrong = ghwplist)
              g_h_question.put()
 
-         # ourTimes = {
-         # "15000": "15000",
-         # "30000": "30000",
-         # }
-         # ourPoints = {
-         # "5": "5",
-         # "10": "10",
-         # }
-         # for x in ourTimes:
-         #     randomizedData = timeData(
-         #        time = x["ourTimes"]
-         #        )
-         # for x in ourPoints:
-         #     dominzedData = pointsData(
-         #     points = x["ourPoints"]
-         #     )
-         #
-
-         # a_m_response = urlfetch.fetch(animalsMediumEndPoint).content
-         # json_a_m_response = json.loads(a_m_response)
-         # a_m_results = json_a_m_response["results"]
-         # for b in a_m_results:
-         #     a_m_question = mediumAnimals(
-         #        animal_m_question = b["question"],
-         #        animal_m_correct = b["correct_answer"],
-         #        animal_m_wrong = b["incorrect_answers"])
-         #     a_m_question.put()
-         #
-         # a_h_response = urlfetch.fetch(animalsHardEndPoint).content
-         # json_a_h_response = json.loads(a_h_response)
-         # a_h_results = json_a_h_response["results"]
-         # for c in a_h_results:
-         #     a_h_question = hardAnimals(
-         #        animal_h_question = c["question"],
-         #        animal_h_correct = c["correct_answer"],
-         #        animal_h_wrong = c["incorrect_answers"])
-         #     a_h_question.put()
-         #
-         # g_e_response = urlfetch.fetch(geoEasyEndPoint).content
-         # json_g_e_response = json.loads(g_e_response)
-         # g_e_results = json_g_e_response["results"]
-         # for d in g_e_results:
-         #     g_e_question = easyGeography(
-         #        geo_e_question = d["question"],
-         #        geo_e_correct = d["correct_answer"],
-         #        geo_e_wrong = d["incorrect_answers"])
-         #     g_e_question.put()
-         #
-         # g_m_response = urlfetch.fetch(geoMediumEndPoint).content
-         # json_g_m_response = json.loads(g_m_response)
-         # g_m_results = json_g_m_response["results"]
-         # for e in g_m_results:
-         #     g_m_question = mediumGeography(
-         #
-         #        geo_m_question = e["question"],
-         #        geo_m_correct = e["correct_answer"],
-         #        geo_m_wrong = e["incorrect_answers"])
-         #     g_m_question.put()
-         #
-         # g_h_response = urlfetch.fetch(geoHardEndPoint).content
-         # json_g_h_response = json.loads(g_h_response)
-         # g_h_results = json_g_h_response["results"]
-         # for f in g_h_results:
-         #     g_h_question = hardGeography(
-         #        geo_h_question = f["question"],
-         #        geo_h_correct = f["correct_answer"],
-         #        geo_h_wrong = f["incorrect_answers"])
-         #     g_h_question.put()
-
-         # ourTimes = {
-         # "15000": "15000",
-         # "30000": "30000",
-         # }
-         # ourPoints = {
-         # "5": "5",
-         # "10": "10",
-         # }
-         # for x in ourTimes:
-         #     randomizedData = timeData(
-         #        time = x["ourTimes"]
-         #        )
-         # for x in ourPoints:
-         #     dominzedData = pointsData(
-         #     points = x["ourPoints"]
-         #     )
-
-
-         # randomizedData.put()
-         # dominzedData.put()
-
-        #player_1_data = questionData(player=1,points=0).put()
-        #player_2_data = questionData(player=1,points=0).put()
-
-         # for g in range(10):
-         #    triviaData = questionData(
-         #        player = g["player"],
-         #        points = g["points"])
-         #    triviaData.put()
 
 class TitleScreen(BaseHandler):
     def get(self):
@@ -268,7 +170,7 @@ class TitleScreen(BaseHandler):
         player_2 = self.request.get("player_2")     # Second Player
         self.session['player_2'] = player_2
 
-        text_box = self.request.get("Click to see the outcome")   # Page 2 Textbox
+        text_box = self.request.get("Click to see the outcomm")   # Page 2 Textbox
         self.session['text_box'] = text_box
 
         # numRounds = self.request.get("1")
@@ -280,7 +182,7 @@ class TitleScreen(BaseHandler):
         # convertNum = self.session.ToInt32();
 
         self.response.write(start_template.render(difficulty=difficulty,category=category,
-        player_1=player_1,player_2=player_2,text_box=text_box,numRounds=numRounds))
+        player_1=player_1,player_2=player_2,text_box=text_box))
 
     #def post(self):
     #    name_template = jinja_env.get_template('templates/first_page.html')
@@ -337,27 +239,27 @@ class MagicDecision(BaseHandler):
         difficulty = self.request.get("difficulty")
         self.session['difficulty'] = difficulty
         difficulty = self.session.get('difficulty')
-        self.response.write("Difficulty: " + difficulty + "<br>")
+        # self.response.write("Difficulty: " + difficulty + "<br>")
 
         category = self.request.get("category")
         self.session['category'] = category
         category = self.session.get('category')
-        self.response.write("Category: " + category + "<br>")
+        # self.response.write("Category: " + category + "<br>")
 
         player_1 = self.request.get("player_1")
         self.session['player_1'] = player_1
         player_1 = self.session.get('player_1')
-        self.response.write("player_1: " + player_1 + "<br>")
+        # self.response.write("player_1: " + player_1 + "<br>")
 
         player_2 = self.request.get("player_2")
         self.session['player_2'] = player_2
         player_2 = self.session.get('player_2')
-        self.response.write("player_2: " + player_2 + "<br>")
+        # self.response.write("player_2: " + player_2 + "<br>")
 
 # Page 2 Textbox
         self.session['text_box'] = "Click to see the outcome"
         text_box = self.session.get('text_box')
-        self.response.write(" text: " + text_box)
+        # self.response.write(" text: " + text_box)
 
         # numRounds[0] = "Yes"
 
@@ -374,9 +276,9 @@ class MagicDecision(BaseHandler):
         text_box = self.session.get('text_box')
         self.response.write(" text: " + text_box)
 
-        # self.response.write(magic_template.render(difficulty=difficulty,
-        # category=category,player_1=player_1,player_2=player_2,
-        # text_box=text_box,))
+        self.response.write(magic_template.render(difficulty=difficulty,
+        category=category,player_1=player_1,player_2=player_2,
+        text_box=text_box,))
 
 class MagicDecision2(BaseHandler):
     def post(self):
@@ -385,12 +287,12 @@ class MagicDecision2(BaseHandler):
         # difficulty = self.request.get("difficulty")
         # self.session['difficulty'] = difficulty
         difficulty = self.session.get('difficulty')
-        self.response.write("Difficulty: " + difficulty + "<br>")
+
 
         # category = self.request.get("category")
         # self.session['category'] = category
         category = self.session.get('category')
-        self.response.write("Category: " + category + "<br>")
+
 
         # player_1 = self.request.get("player_1")
         # self.session['player_1'] = player_1
@@ -402,7 +304,7 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write("player_2: " + player_2 + "<br>")
 
-        self.session['text_box'] = "Continue"
+        self.session['text_box'] = "Click to Continue!"
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
@@ -434,7 +336,7 @@ class MagicDecision2(BaseHandler):
         player_2 = self.session.get('player_2')
         # self.response.write(" player_2: " + player_2)
 
-        self.session['text_box'] = "Click to Continue"
+        self.session['text_box'] = "Click to Continue!!"
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
@@ -449,16 +351,16 @@ class Trivia(BaseHandler):
         # difficulty = self.request.get("difficulty")
         # self.session['difficulty'] = difficulty
         difficulty = self.session.get('difficulty')
-        self.response.write(" Difficulty: " + difficulty)
+
 
         category = self.session.get('category')
-        self.response.write(" Category: " + category)
+
 
         player_1 = self.session.get('player_1')
-        self.response.write(" player_1: " + player_1)
+
 
         player_2 = self.session.get('player_2')
-        self.response.write(" player_2: " + player_2)
+
 
         # numRounds[0] = "Yes"
 
@@ -476,7 +378,7 @@ class Trivia(BaseHandler):
                 correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
                 incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
 
-                self.response.write(in_quiry)
+                
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
                     all_answers.append(h)

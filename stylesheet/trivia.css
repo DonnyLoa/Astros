@@ -17,11 +17,16 @@
 
 }
 
+
+
 .buttons{
   text-align: center;
 
 }
 
+.cbutton{
+  text-align: center;
+}
 #Answer{
   font-family: 'Roboto Mono', monospace;
   color:white;
@@ -52,7 +57,7 @@
   height: 10px;
   margin: 0px;
   padding-top: 3%;
-  text-align: center;
+  text-align: left;
 }
 
 #Answer2{
@@ -87,15 +92,26 @@
 .Submit{
   color: white;
   font-family: 'Roboto Mono', monospace;
-  color: #39FF14
+  color: #39FF14;
+  font-size: 20;
+  text-align: left;
 }
 
 #results1{
   color:white;
+  font-size: 20;
+}
+#results1:active{
+    line-height : 25px;
+}
+h4{
+  font-size: 16px;
+  color: black;
+  /* text-align: center; */
 }
 
 
-
+/*
 #n1{
   font-family: 'Roboto Mono', monospace;
   color: white;
@@ -106,10 +122,32 @@
   font-family: 'Roboto Mono', monospace;
   color: white;
   position: absolute; top: 5px; right: 5px; text-align: right;
+ } */
+
+
+ .boxed {
+   border: 3px solid black ;
+   top: 5px;
+   width: 100px;
+   height: 50px;
+   margin: 5px auto 0;
+   background: #6F3F7F;
+   border-radius: 15px;
+   position: absolute;
+   box-shadow: inset 0px 0px 25px rgba(0,0,0, 0.5);
+   display: flex;
+   text-align: center;
+
  }
 
-
-
+ #player1score{
+   text-align: center;
+   left: 5px;
+ }
+ #player2score{
+   text-align: center;
+   right: 5px;
+ }
 /* Rainbow Box Corners */
 body{
     background: #111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */

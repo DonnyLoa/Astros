@@ -28,6 +28,12 @@ h1{
   text-align: center;
 }
 
+h4{
+  font-size: 16px;
+  color: black;
+  /* text-align: center; */
+}
+
 .boxed {
   border: 3px solid black ;
   top: 5px;
@@ -39,6 +45,7 @@ h1{
   position: absolute;
   box-shadow: inset 0px 0px 25px rgba(0,0,0, 0.5);
   display: flex;
+  text-align: center;
 
 }
 
@@ -182,6 +189,9 @@ body { }
     color: white;
 }
 #time{
+  text-align: left;
+}
+#emit{
   text-align: left;
 }
 

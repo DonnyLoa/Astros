@@ -12,9 +12,6 @@
      <!-- <form class="" action="/eightBall2" method="post">
         <button class="astext" id="magic_button">{{ text_box }}</button>
      </form> -->
-     <div class="decision">
-       <h5 > It's {{ whoplays }} turn </h5>
-     </div>
      <div class = "box">
      <form class = "" action="/trivia" method="post">
         <button class="astext" onclick="myFunction()" id="magic_button">
@@ -29,6 +26,9 @@
          </button>
         </h2>
 </form>
+<div id = "emit" class="decision">
+  <h5 id = "emit" class="decision"> It's {{ whoplays }}'s turn </h5>
+</div>
 </body>
 
   </body>
@@ -56,11 +56,11 @@
   </div> -->
 <!-- Player boxes -->
   <div class="boxed" id="player1score">
-  <h1> {{player_1}} </h1>
+  <h4> {{player_1}} </h4>
 </div>
 
 <div class="boxed" id="player2score">
-<h1> {{player_2}} </h1>
+<h4> {{player_2}} </h4>
 </div>
 </body>
 

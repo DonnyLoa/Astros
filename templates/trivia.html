@@ -36,10 +36,17 @@
          </head>
 
   <body>
-    <h2 id= "Answer"> Answer the question on time! </h1>
+    <div class="boxed" id="player1score">
+    <h4> {{player_1}} </h4>
+    </div>
 
-    <h2 id="n1">{{ player_1 }}: 0</h2>
-    <h2 id="n2">{{ player_2 }}</h2>
+    <div class="boxed" id="player2score">
+    <h4> {{player_2}} </h4>
+    </div>
+    <h2 id= "Answer"> Don't Run Out of Time! </h1>
+
+    <!-- <h2 id="n1">{{ player_1 }}: 0</h2>
+    <h2 id="n2">{{ player_2 }}</h2> -->
     <h2 id="Question">{{ in_quiry }}</h2>
 
     <h2>{{ numRounds }}</h2>
@@ -52,10 +59,6 @@
       <button type="button" name="button">Testers</button>
     {% endif %} -->
 
-
-<br>
-<br>
-
   </head>
 
   <body>
@@ -66,8 +69,11 @@
 
     <form class="" id= "results1" action="/results1" method="post">
       {% for answer in all_answers %}
-        <input type="radio" name="answer" value="incorrect">{{ answer }}<br>
+        <input type="radio" name="answer" value="">{{ answer }}<br>
       {% endfor %}
+
+<br>
+<br>
 
 
       <input type="submit" class="button Submit"></button>
