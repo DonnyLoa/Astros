@@ -27,29 +27,20 @@
       <h2 id="line2">{{ line2 }}</h2>
     </div>
 
-    <div>
+    <div class = "triword">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Magic_eight_ball.png" alt="magic 8-ball">
+      <div class = "textal">CORRECT</div>
 
     </div>
 
 
-<h2>{{ numRounds }}</h2>
 
-    {% if numRounds[9] == "Yes" %}
-      <form class="" action="/endGame" method="post">
-        <button class="btn start">Continue</button>
-      </form>
-    {% else %}
-      <form class="" action="/eightBall2" method="post">
-        <button class="btn start">Next Question</button>
-      </form>
-    {% endif %}
 
-<!--
-    <form class="" action="/endGame" method="post">
+
+    <form class="" action="/" method="post">
       <button class="btn start">Continue</button>
 
-    <!-  <input type="submit" name="button" value="Continue"> -->
-    <!-- </form> -->
+     </form>
 
 
 
