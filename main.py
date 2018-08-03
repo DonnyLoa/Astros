@@ -59,85 +59,118 @@ class SeedPage(BaseHandler):
          json_a_e_response = json.loads(a_e_response)
          a_e_results = json_a_e_response["results"]
          for a in a_e_results:
-            a_e_quest = easyAnimals(
-                animal_e_question = a["question"],
-                animal_e_correct = a["correct_answer"],
-                animal_e_wrong = a["incorrect_answers"])
-            a_e_question = urlparse.unquote(a_e_quest)
+            aeqp = urlparse.unquote(a["question"])
+            aecp = urlparse.unquote(a["correct_answer"])
+            aewplist = []
+            for x in a["incorrect_answers"]:
+               aewp = urlparse.unquote(x)
+               aewplist.append(aewp)
+            a_e_question = easyAnimals(
+               animal_e_question = aeqp,
+               animal_e_correct = aecp,
+               animal_e_wrong = aewplist)
             a_e_question.put()
 
          a_m_response = urlfetch.fetch(animalsMediumEndPoint).content
          json_a_m_response = json.loads(a_m_response)
          a_m_results = json_a_m_response["results"]
          for b in a_m_results:
-             a_m_quest = mediumAnimals(
-                animal_m_question = b["question"],
-                animal_m_correct = b["correct_answer"],
-                animal_m_wrong = b["incorrect_answers"])
-             a_m_question = urlparse.unquote(a_m_quest)
+             amqp = urlparse.unquote(b["question"])
+             amcp = urlparse.unquote(b["correct_answer"])
+             amwplist = []
+             for x in b["incorrect_answers"]:
+                amwp = urlparse.unquote(x)
+                amwplist.append(amwp)
+             a_m_question = mediumAnimals(
+                animal_m_question = amqp,
+                animal_m_correct = amcp,
+                animal_m_wrong = amwplist)
              a_m_question.put()
 
          a_h_response = urlfetch.fetch(animalsHardEndPoint).content
          json_a_h_response = json.loads(a_h_response)
          a_h_results = json_a_h_response["results"]
          for c in a_h_results:
-             a_h_quest = hardAnimals(
-                animal_h_question = c["question"],
-                animal_h_correct = c["correct_answer"],
-                animal_h_wrong = c["incorrect_answers"])
-             a_h_question = urlparse.unquote(a_h_quest)
+             ahqp = urlparse.unquote(c["question"])
+             ahcp = urlparse.unquote(c["correct_answer"])
+             ahwplist = []
+             for x in c["incorrect_answers"]:
+                ahwp = urlparse.unquote(x)
+                ahwplist.append(ahwp)
+             a_h_question = hardAnimals(
+                animal_h_question = ahqp,
+                animal_h_correct = ahcp,
+                animal_h_wrong = ahwplist)
              a_h_question.put()
+
 
          g_e_response = urlfetch.fetch(geoEasyEndPoint).content
          json_g_e_response = json.loads(g_e_response)
          g_e_results = json_g_e_response["results"]
          for d in g_e_results:
+             geqp = urlparse.unquote(d["question"])
+             gecp = urlparse.unquote(d["correct_answer"])
+             gewplist = []
+             for x in d["incorrect_answers"]:
+                gewp = urlparse.unquote(x)
+                gewplist.append(gewp)
              g_e_question = easyGeography(
-                geo_e_question = d["question"],
-                geo_e_correct = d["correct_answer"],
-                geo_e_wrong = d["incorrect_answers"])
+                geo_e_question = geqp,
+                geo_e_correct = gecp,
+                geo_e_wrong = gewplist)
              g_e_question.put()
 
          g_m_response = urlfetch.fetch(geoMediumEndPoint).content
          json_g_m_response = json.loads(g_m_response)
          g_m_results = json_g_m_response["results"]
          for e in g_m_results:
+             gmqp = urlparse.unquote(e["question"])
+             gmcp = urlparse.unquote(e["correct_answer"])
+             gmwplist = []
+             for x in e["incorrect_answers"]:
+                gmwp = urlparse.unquote(x)
+                gmwplist.append(gmwp)
              g_m_question = mediumGeography(
-
-                geo_m_question = e["question"],
-                geo_m_correct = e["correct_answer"],
-                geo_m_wrong = e["incorrect_answers"])
+                geo_m_question = gmqp,
+                geo_m_correct = gmcp,
+                geo_m_wrong = gmwplist)
              g_m_question.put()
 
          g_h_response = urlfetch.fetch(geoHardEndPoint).content
          json_g_h_response = json.loads(g_h_response)
          g_h_results = json_g_h_response["results"]
          for f in g_h_results:
+             ghqp = urlparse.unquote(f["question"])
+             ghcp = urlparse.unquote(f["correct_answer"])
+             ghwplist = []
+             for x in f["incorrect_answers"]:
+                ghwp = urlparse.unquote(x)
+                ghwplist.append(ghwp)
              g_h_question = hardGeography(
-                geo_h_question = f["question"],
-                geo_h_correct = f["correct_answer"],
-                geo_h_wrong = f["incorrect_answers"])
+                geo_h_question = ghqp,
+                geo_h_correct = ghcp,
+                geo_h_wrong = ghwplist)
              g_h_question.put()
 
-         ourTimes = {
-         "15000": "15000",
-         "30000": "30000",
-         }
-         ourPoints = {
-         "5": "5",
-         "10": "10",
-         }
-         for x in ourTimes:
-             randomizedData = timeData(
-                time = x["ourTimes"]
-                )
-         for x in ourPoints:
-             dominzedData = pointsData(
-             points = x["ourPoints"]
-             )
-
-         randomizedData.put()
-         dominzedData.put()
+         # ourTimes = {
+         # "15000": "15000",
+         # "30000": "30000",
+         # }
+         # ourPoints = {
+         # "5": "5",
+         # "10": "10",
+         # }
+         # for x in ourTimes:
+         #     randomizedData = timeData(
+         #        time = x["ourTimes"]
+         #        )
+         # for x in ourPoints:
+         #     dominzedData = pointsData(
+         #     points = x["ourPoints"]
+         #     )
+         #
+         # randomizedData.put()
+         # dominzedData.put()
 
         #player_1_data = questionData(player=1,points=0).put()
         #player_2_data = questionData(player=1,points=0).put()
