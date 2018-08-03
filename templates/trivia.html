@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet/trivia.css">
     <style media="screen"> </style>
+    <script src="templates/timer.js"></script>
+
 
 <div class="box">
 <br>
@@ -104,18 +106,14 @@
         if (time == 0) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results1";
-          }, 1000000000);
+          }, time);
         }
         else if (time == 1) {
           setTimeout(function() {
             window.location.href = "http://localhost:8080/results1";
-          }, 1000000000);
+          }, time);
         }
-        else if (time == 2) {
-          setTimeout(function() {
-            window.location.href = "http://localhost:8080/results1";
-          }, 1000000000);
-        }
+
       }
 
       myFunction(time);
@@ -164,6 +162,10 @@
              }, 1000000000);
            }
          }
+         <form class="" id= "results1" action="/results1" method="post">
+           {% for answer in all_answers %}
+             <input type="radio" name="answer" value="{{answer}}">{{answer}}<br>
+           {% endfor %}
 
          myFunction(time);
 

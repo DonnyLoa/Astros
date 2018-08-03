@@ -5,48 +5,47 @@
     <title>Ma8ic Trivia</title>
 
     <div class="box">
-
-
           <div id="header">
           <h1>Ma8ic Trivia </h1>
           </div>
   </head>
 
-  <link rel="stylesheet" href="stylesheet/results1.css">
+  <link rel="stylesheet" href="stylesheet/results2.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <body>
     <div class="boxed" id="player1score">
-    <h2> {{player_1}} </h2>
+    <h2> {{ player_1 }} </h2>
   </div>
+  <h2>{{correct_answer}}</h2>
+  <h2>{{answer}}</h2>
 
   <div class="boxed" id="player2score">
-  <h2> {{player_2}} </h2>
+  <h2> {{ player_2 }}</h2>
   </div>
     <div id="meme-div">
       <h2 id="line1">{{ line1 }}</h2>
       <h2 id="line2">{{ line2 }}</h2>
     </div>
-
     <div class = "triword">
       <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Magic_eight_ball.png" alt="magic 8-ball">
-      <div class = "textal">CORRECT</div>
+      {% if correct_answer == answer %}
+        <div class = "textal">CORRECT</div>
+      {% endif %}
+
+      {% if correct_answer != answer %}
+        <div class = "textal">INCORRECT</div>
+      {% endif %}
+
 
     </div>
 
 
-
-
-      <!-- <form class="" action="/endGame" method="post">
-        <button class="btn start">Continue</button>
-      </form> -->
-
-      <form class="" action="/eightBall2" method="post">
-        <button class="btn start">Next Question</button>
-      </form>
-
-
-
-    <form class="" action="/" method="post">
+    <form class="" action="/eightBall2" method="post">
+      <button class="btn start">Next Question</button>
+      <!-- <input type="submit" name="" value="Next Question"> -->
+    </form>
+<!--
+    <form class="" action="/endGame" method="post">
       <button class="btn start">Continue</button>
 
      </form>
