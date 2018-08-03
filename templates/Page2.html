@@ -1,83 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<meta charset="utf-8">
+
 <head>
+
 <title> Ma8ic Trivia </title>
+
 </head>
+<div class="box">
+
+  <!-- Title Font-->
 <link rel="stylesheet" href="stylesheet/Page2.css">
 <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 <body>
-<!-- Makes the Moving Ball-->
-     <!-- <form class="" action="/eightBall2" method="post">
-        <button class="astext" id="magic_button">{{ text_box }}</button>
-     </form> -->
 
-     <form class="" action="/eightBall2" method="post">
-        <button class="astext" id="magic_button">
-        <h2>{{ text_box }}</h2>
-      </button>
-        <!-- <script type="text/javascript">
-          //document.write(difficulty)
-          //document.write(sessionStorage.difficulty);
-          let difficulty = {{ difficulty.difficulty }}
-
-          //   // def index():
-          //     // variable = request.args["variable"]
-          //
-          if (difficulty == "Easy"):
-            console.log(0);
-          else if (difficulty == "Less Easy"):
-            console.log(1);
-          else if (difficulty == "Waaaayyy Less Easy"):
-            console.log(2);
-        </script> -->
-    </form>
-  </body>
-</html>
+<div class="box">
+    <form class="" action="/eightBall2" method="post">
+     <button class="astext" id="magic_button">
+       <h1>
+        <center>
+       <div><span class="header">Click to see the Outcome!</span></div>
+        </center>
+       </h1>
+   </button>
 
 
-  <div class="box">
-    <div>
-    <div class="container circle">
-    <div class="main one"></div>
-    <div class="main two"></div>
-
-    <div class="big circle one"></div>
-    <div class="big circle two"></div>
-    <h2> Click me!</h2>
-    <div class="small circle one"></div>
-    <div class="small circle two"></div>
-  </div>
-  <!-- <div >
-    <form class= "k" action="/eightBall" method="post">
-    <button class="astext">
-
-      </button>
-    </form>
-  </div> -->
-<!-- Player boxes -->
-  <div class="boxed" id="player1score">
-  <h1> {{player_1}} </h1>
+<div class="boxed" id="player1score">
+<h1> {{player_1}} </h1>
 </div>
 
 <div class="boxed" id="player2score">
 <h1> {{player_2}} </h1>
 </div>
-</body>
 
 <div class="decision">
-  <h5 id="time"> Time allotted: </h5> <h5 id="points"> Worth: __ points</h5>
+<h5 id="time"> Time allotted: </h5> <h5 id="points"> Worth: __ points</h5>
 </div>
-<!-- Makes the Main Box Border round-->
-     <style>
-     input[type=text] {
-       width: 70%;
-       padding: 12px 20px;
-       margin: 8px 0;
-       box-sizing: border-box;
-       border: none;
-       border-bottom: 2px solid white;
-       background-color: #0c0c0b;
-       top: 10%;
-       left: 10%;
-     }
+
+    <div class="container circle">
+    <div class="main one"></div>
+    <div class="main two"></div>
+    <div class="big circle one"></div>
+    <div class="small circle one"></div>
+
+</div>
+ </style>
+</div>
+</body>
