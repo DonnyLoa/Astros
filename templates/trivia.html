@@ -40,6 +40,11 @@
       <h2>{{ answer }}</h2>
     {% endfor %}
 
+    {% if currentPlayer == "First" %}
+      <h2>{{ player_1 }}'s Turn</h2>
+    {% else if currentPlayer == "Second" %}
+      <h2>{{ player_2 }}'s Turn</h2>
+
     <!-- {% if player_1 %}
       <p>test</p>
     {% endif %} -->
