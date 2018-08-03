@@ -48,14 +48,15 @@ jinja_env = jinja2.Environment(
 
 class SeedPage(BaseHandler):
     def get(self):
-         animalsEasyEndPoint = "https://opentdb.com/api.php?amount=30&category=27&difficulty=easy&encode=url3986"
-         animalsMediumEndPoint = "https://opentdb.com/api.php?amount=30&category=27&difficulty=medium&encode=url3986"
-         animalsHardEndPoint = "https://opentdb.com/api.php?amount=30&category=27&difficulty=hard&encode=url3986"
+         animalsEasyEndPoint = "https://opentdb.com/api.php?amount=30&category=17&difficulty=easy&encode=url3986"
+         animalsMediumEndPoint = "https://opentdb.com/api.php?amount=30&category=17&difficulty=medium&encode=url3986"
+         animalsHardEndPoint = "https://opentdb.com/api.php?amount=30&category=17&difficulty=hard&encode=url3986"
          geoEasyEndPoint = "https://opentdb.com/api.php?amount=30&category=22&difficulty=easy&encode=url3986"
          geoMediumEndPoint = "https://opentdb.com/api.php?amount=30&category=22&difficulty=medium&encode=url3986"
          geoHardEndPoint = "https://opentdb.com/api.php?amount=30&category=22&difficulty=hard&encode=url3986"
 
          a_e_response = urlfetch.fetch(animalsEasyEndPoint).content
+         print a_e_response
          json_a_e_response = json.loads(a_e_response)
          a_e_results = json_a_e_response["results"]
          for a in a_e_results:
