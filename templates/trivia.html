@@ -40,13 +40,14 @@
       <h2>{{ answer }}</h2>
     {% endfor %}
 
-    {% if currentPlayer == "First" %}
-      <h2>{{ player_1 }}'s Turn</h2>
-    {% else if currentPlayer == "Second" %}
-      <h2>{{ player_2 }}'s Turn</h2>
+    <h2>{{ numRounds }}</h2>
 
-    <!-- {% if player_1 %}
-      <p>test</p>
+    <!-- {% if currentPlayer == "player_1" %}
+      <button type="button" name="button">Test</button>
+    {% endif %}
+
+    {% if currentPlayer == "player_2" %}
+      <button type="button" name="button">Testers</button>
     {% endif %} -->
 
     <script id="Answer2">
