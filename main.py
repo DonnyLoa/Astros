@@ -115,25 +115,25 @@ class SeedPage(BaseHandler):
          #        geo_h_wrong = f["incorrect_answers"])
          #     g_h_question.put()
 
-         ourTimes = {
-         "15000": "15000",
-         "30000": "30000",
-         }
-         ourPoints = {
-         "5": "5",
-         "10": "10",
-         }
-         for x in ourTimes:
-             randomizedData = timeData(
-                time = x["ourTimes"]
-                )
-         for x in ourPoints:
-             dominzedData = pointsData(
-             points = x["ourPoints"]
-             )
+         # ourTimes = {
+         # "15000": "15000",
+         # "30000": "30000",
+         # }
+         # ourPoints = {
+         # "5": "5",
+         # "10": "10",
+         # }
+         # for x in ourTimes:
+         #     randomizedData = timeData(
+         #        time = x["ourTimes"]
+         #        )
+         # for x in ourPoints:
+         #     dominzedData = pointsData(
+         #     points = x["ourPoints"]
+         #     )
 
-         randomizedData.put()
-         dominzedData.put()
+         # randomizedData.put()
+         # dominzedData.put()
 
         #player_1_data = questionData(player=1,points=0).put()
         #player_2_data = questionData(player=1,points=0).put()
@@ -350,7 +350,7 @@ class Trivia(BaseHandler):
                 self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
 
                 for answer in all_answers:
-                    self.response.write("<p>" + answer + "</p>")
+                    self.response.write("")
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -368,7 +368,7 @@ class Trivia(BaseHandler):
                 self.response.write(trivia_template.render(difficulty=difficulty,category=category,player_1=player_1,player_2=player_2,in_quiry=in_quiry,all_answers=all_answers))
 
                 for answer in all_answers:
-                    self.response.write("<p>" + answer + "</p>")
+                    self.response.write("")
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
