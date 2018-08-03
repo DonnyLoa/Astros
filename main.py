@@ -170,6 +170,77 @@ class SeedPage(BaseHandler):
          #     points = x["ourPoints"]
          #     )
          #
+<<<<<<< HEAD
+         # a_m_response = urlfetch.fetch(animalsMediumEndPoint).content
+         # json_a_m_response = json.loads(a_m_response)
+         # a_m_results = json_a_m_response["results"]
+         # for b in a_m_results:
+         #     a_m_question = mediumAnimals(
+         #        animal_m_question = b["question"],
+         #        animal_m_correct = b["correct_answer"],
+         #        animal_m_wrong = b["incorrect_answers"])
+         #     a_m_question.put()
+         #
+         # a_h_response = urlfetch.fetch(animalsHardEndPoint).content
+         # json_a_h_response = json.loads(a_h_response)
+         # a_h_results = json_a_h_response["results"]
+         # for c in a_h_results:
+         #     a_h_question = hardAnimals(
+         #        animal_h_question = c["question"],
+         #        animal_h_correct = c["correct_answer"],
+         #        animal_h_wrong = c["incorrect_answers"])
+         #     a_h_question.put()
+         #
+         # g_e_response = urlfetch.fetch(geoEasyEndPoint).content
+         # json_g_e_response = json.loads(g_e_response)
+         # g_e_results = json_g_e_response["results"]
+         # for d in g_e_results:
+         #     g_e_question = easyGeography(
+         #        geo_e_question = d["question"],
+         #        geo_e_correct = d["correct_answer"],
+         #        geo_e_wrong = d["incorrect_answers"])
+         #     g_e_question.put()
+         #
+         # g_m_response = urlfetch.fetch(geoMediumEndPoint).content
+         # json_g_m_response = json.loads(g_m_response)
+         # g_m_results = json_g_m_response["results"]
+         # for e in g_m_results:
+         #     g_m_question = mediumGeography(
+         #
+         #        geo_m_question = e["question"],
+         #        geo_m_correct = e["correct_answer"],
+         #        geo_m_wrong = e["incorrect_answers"])
+         #     g_m_question.put()
+         #
+         # g_h_response = urlfetch.fetch(geoHardEndPoint).content
+         # json_g_h_response = json.loads(g_h_response)
+         # g_h_results = json_g_h_response["results"]
+         # for f in g_h_results:
+         #     g_h_question = hardGeography(
+         #        geo_h_question = f["question"],
+         #        geo_h_correct = f["correct_answer"],
+         #        geo_h_wrong = f["incorrect_answers"])
+         #     g_h_question.put()
+
+         # ourTimes = {
+         # "15000": "15000",
+         # "30000": "30000",
+         # }
+         # ourPoints = {
+         # "5": "5",
+         # "10": "10",
+         # }
+         # for x in ourTimes:
+         #     randomizedData = timeData(
+         #        time = x["ourTimes"]
+         #        )
+         # for x in ourPoints:
+         #     dominzedData = pointsData(
+         #     points = x["ourPoints"]
+         #     )
+
+=======
+>>>>>>> master
          # randomizedData.put()
          # dominzedData.put()
 
@@ -456,10 +527,13 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
+<<<<<<< HEAD
+=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
                 in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+>>>>>>> master
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -477,10 +551,13 @@ class Trivia(BaseHandler):
 
                 for answer in all_answers:
                     self.response.write("")
+<<<<<<< HEAD
+=======
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
                 in_quiry=in_quiry,all_answers=all_answers,answer=answer))
+>>>>>>> master
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
