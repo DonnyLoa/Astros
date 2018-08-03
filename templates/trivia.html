@@ -7,6 +7,7 @@
 
       <!-- Title Font-->
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet/trivia.css">
     <style media="screen"> </style>
 
@@ -42,15 +43,15 @@
 
     {% if currentPlayer == "First" %}
       <h2>{{ player_1 }}'s Turn</h2>
-    {% else if currentPlayer == "Second" %}
+    {% elif currentPlayer == "Second" %}
       <h2>{{ player_2 }}'s Turn</h2>
+    {% endif %}
 
-    <!-- {% if player_1 %}
-      <p>test</p>
-    {% endif %} -->
+
+
 
     <script id="Answer2">
-      let countDownDate = new Date(1000000000).getTime();
+      let countDownDate = new Date(5).getTime();
       let distance = countDownDate;
       let seconds = distance;
 

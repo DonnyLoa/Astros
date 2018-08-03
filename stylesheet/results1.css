@@ -43,7 +43,7 @@ img{
 
 .start {
   color: #39FF14;
-  position: fixed;
+  /* position: fixed; */
   bottom: 168;
   margin-left: 565;
 }
