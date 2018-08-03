@@ -40,13 +40,11 @@
   <body>
     <h2 id= "Answer"> Answer the question on time! </h1>
       <h2>{{ randomPlayer }}</h2>
-      {% if {{randomPlayer}} == 0: %}
-        <h2>It's {{player_1}}'s turn!</h2>
-      {% endif %}
 
-      {% if {{randomPlayer}} == 1: %}
+        <h2>It's {{player_1}}'s turn!</h2>
+
+
         <h2>It's {{player_2}}'s turn!</h2>
-      {% endif %}
 
     <h2 id="n1">{{ player_1 }}</h2>
     <h2 id="n2">{{ player_2 }}</h2>
@@ -112,7 +110,7 @@
 
     <form class="" id= "results1" action="/results1" method="post">
       {% for answer in all_answers %}
-        <input type="radio" name="answer" value="">{{ answer }}<br>
+        <input type="radio" name="answer" value="{{answer}}">{{answer}}<br>
       {% endfor %}
 
 

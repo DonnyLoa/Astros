@@ -270,6 +270,9 @@ class TitleScreen(BaseHandler):
         text_box = self.request.get("Click to see the outcome")   # Page 2 Textbox
         self.session['text_box'] = text_box
 
+        # self.session.get('answer')
+        # answer = self.response.get('answer')
+
         # numRounds = self.request.get("1")
         # self.session['numRounds'] = numRounds
 
@@ -356,11 +359,15 @@ class MagicDecision(BaseHandler):
         text_box = self.session.get('text_box')
         self.response.write(" text: " + text_box)
 
+        self.session['player_points'] = 5
+        player_points = self.session.get('player_points')
+        self.response.write(player_points)
+
         # numRounds[0] = "Yes"
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box))
+        text_box=text_box,player_points=player_points))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2.html')
@@ -403,6 +410,9 @@ class MagicDecision2(BaseHandler):
         text_box = self.session.get('text_box')
         # self.response.write(" text: " + text_box)
 
+        player_points = self.session.get('player_points')
+        self.response.write(player_points)
+
         time = [15,30]
 
         i = random.randint(0,1)
@@ -411,7 +421,7 @@ class MagicDecision2(BaseHandler):
 
         self.response.write(magic_template.render(difficulty=difficulty,
         category=category,player_1=player_1,player_2=player_2,
-        text_box=text_box,timer=timer))
+        text_box=text_box,timer=timer,player_points=player_points))
 
     def get(self):
         magic_template = jinja_env.get_template('templates/Page2-2.html')
@@ -473,6 +483,11 @@ class Trivia(BaseHandler):
         player_2 = self.session.get('player_2')
         self.response.write(" player_2: " + player_2)
 
+        player_points = self.session.get('player_points')
+        self.response.write(player_points)
+
+        # answer = self.response.get('answer')
+
         # store player points
 
         player1_points = [10]
@@ -522,6 +537,9 @@ class Trivia(BaseHandler):
                 correct_answer = easyAnimals.query().fetch()[j].animal_e_correct
                 incorrect_answers = easyAnimals.query().fetch()[j].animal_e_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
@@ -534,7 +552,8 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                randomPlayer=randomPlayer,player_points=player_points,correct_answer=correct_answer))
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('/templates/trivia.html')
@@ -543,6 +562,9 @@ class Trivia(BaseHandler):
                 correct_answer = mediumAnimals.query().fetch()[j].animal_m_correct
                 incorrect_answers = mediumAnimals.query().fetch()[j].animal_m_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
@@ -555,7 +577,8 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                andomPlayer=randomPlayer,correct_answer=correct_answer))
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -564,6 +587,9 @@ class Trivia(BaseHandler):
                 correct_answer = hardAnimals.query().fetch()[j].animal_h_correct
                 incorrect_answers = hardAnimals.query().fetch()[j].animal_h_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
@@ -576,7 +602,8 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                randomPlayer=randomPlayer,correct_answer=correct_answer))
 
         elif (category == "Geography"):
             if (difficulty == "Easy"):
@@ -586,6 +613,9 @@ class Trivia(BaseHandler):
                 correct_answer = easyGeography.query().fetch()[j].geo_e_correct
                 incorrect_answers = easyGeography.query().fetch()[j].geo_e_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
@@ -598,7 +628,8 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                randomPlayer=randomPlayer,correct_answer=correct_answer))
 
             elif (difficulty == "Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -607,19 +638,22 @@ class Trivia(BaseHandler):
                 correct_answer = mediumGeography.query().fetch()[j].geo_m_correct
                 incorrect_answers = mediumGeography.query().fetch()[j].geo_m_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
                     all_answers.append(h)
                     shuffle(all_answers)
 
-
                 for answer in all_answers:
                     self.response.write("")
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                randomPlayer=randomPlayer,correct_answer=correct_answer))
 
             elif (difficulty == "Waaaayyy Less Easy"):
                 trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -628,6 +662,9 @@ class Trivia(BaseHandler):
                 correct_answer = hardGeography.query().fetch()[j].geo_h_correct
                 incorrect_answers = hardGeography.query().fetch()[j].geo_h_wrong
 
+                self.session['correct_answer'] = correct_answer
+                correct_answer = self.session.get('correct_answer')
+
                 self.response.write(in_quiry)
                 all_answers = [correct_answer]
                 for h in incorrect_answers:
@@ -640,7 +677,8 @@ class Trivia(BaseHandler):
 
                 self.response.write(trivia_template.render(difficulty=difficulty,
                 category=category,player_1=player_1,player_2=player_2,
-                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,randomPlayer=randomPlayer))
+                in_quiry=in_quiry,all_answers=all_answers,answer=answer,timer=timer,
+                randomPlayer=randomPlayer,correct_answer=correct_answer))
 
 
         # trivia_template = jinja_env.get_template('templates/trivia.html')
@@ -663,9 +701,23 @@ class Results1(BaseHandler):
 
         player_2 = self.session.get('player_2')
         # self.response.write(" player_2: " + player_2)
+        # for i in range(0,10):
+        #     j = random.randint(0,10)
+        #
+        # in_quiry = mediumGeography.query().fetch()[j].geo_m_question
+        # correct_answer = mediumGeography.query().fetch()[j].geo_m_correct
+        # incorrect_answers = mediumGeography.query().fetch()[j].geo_m_wrong
+
+        # self.session['correct_answer'] = correct_answer
+        answer = self.request.get('answer')
+        correct_answer = self.session.get('correct_answer')
+        print(answer)
+        print(correct_answer)
+
 
         self.response.write(results_template.render(difficulty=difficulty,
-        category=category,player_1=player_1,player_2=player_2))
+        category=category,player_1=player_1,player_2=player_2,
+        correct_answer=correct_answer,answer=answer))
 
     def get(self):
         results_template = jinja_env.get_template('templates/results1.html')
