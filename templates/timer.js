@@ -13,7 +13,7 @@ function myFunction(time) {
   typeof(time)
   if (time == 0) {
     setTimeout(function() {
-      window.location.href = "http://localhost:8080/results3";
+      window.location.href = "https://ma8ictrivia.appspot.com/results3";
     }, 15000);
 
     let countDownDate = new Date(15).getTime();
@@ -34,7 +34,7 @@ function myFunction(time) {
   }
   else if (time == 1) {
     setTimeout(function() {
-      window.location.href = "http://localhost:8080/results3";
+      window.location.href = "https://ma8ictrivia.appspot.com/results3";
     }, 30000);
 
     let countDownDate = new Date(30).getTime();

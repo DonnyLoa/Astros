@@ -99,11 +99,12 @@
 
 #results1{
   color:white;
+  padding:25px;
   font-size: 20;
 }
-#results1:active{
+/* #results1:active{
     line-height : 25px;
-}
+} */
 h4{
   font-size: 16px;
   color: black;

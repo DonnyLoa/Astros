@@ -14,7 +14,24 @@ h2{
   font-size: 15px;
   color: black;
 }
+h6{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  /* text-align: center; */
+  font-family: 'Roboto Mono', monospace;
+}
 
+.huh{
+  display: flex;
+  justify-content: space-between;
+}
+#you{
+  text-align:left;
+}
+#actaul{
+  text-align:right;
+}
 .btn {
     border: none;
     background-color: inherit;
@@ -26,11 +43,16 @@ h2{
 }
 
 .btn:hover {background: #222;}
+#replay{
 
+}
 .start {
+  display:felx;
+  jsuitfy-content: space-between;
+  text-align: right;
   color: #39FF14;
   /* position: fixed; */
-  bottom: 168;
+  /* bottom: 16; */
   margin-left: 565;
 }
 
@@ -71,16 +93,13 @@ img{
   font-family: 'Press Start 2P', cursive;
   text-shadow: 3px 3px 0px #333, 5px 5px 0px #999;
 }
-body{
-    background: #111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-}
+
+
+
 
 .box{
     width: 1300px;
-    height: 600px;
+    height: 700px;
     margin: 50px auto 0;
     background: #222;
     border-radius: 10px;
@@ -88,10 +107,17 @@ body{
     box-shadow: inset 0px 0px 25px rgba(0,0,0, 0.5);
 }
 
+body{
+    background: #111 url(http://i.imgur.com/vyZVwuU.png) repeat; /* wood_1 from subtle patterns */
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
 .box::before, .box::after{
     content: '';
     background: linear-gradient(135deg, #E53F00, #E10005, #DD0047, #D90087, #D500C5, #A300D2, #6200CE, #2300CA, #0018C6, #0052C2, #0089BF);
-    background-size: 200% 200%;
+    background-size: 200% 400%;
     position: absolute;
     z-index: -1;
     left: -1px;
